@@ -815,7 +815,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     }
     private int test_si_poing_en_bas(){
         System.out.println("le poing est en " + getTab_poing().Y_poing);
-        if(getTab_poing().Y_poing >(1300)) return 1;//TODO mettre une methode pour calculer
+        if(getTab_poing().Y_poing >(getHauteur_ecran()*0.6)) return 1;//TODO mettre une methode pour calculer
         return 0;
     }
 
