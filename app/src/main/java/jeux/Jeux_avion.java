@@ -75,6 +75,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     private String chaine = "coucou";
     private int t;
     private List<balle> tab_balle = new ArrayList();
+    private int scoreGeneral = 0;
 
     //balle[] tab_balle;
     private poing tab_poing;
@@ -231,20 +232,22 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         for (num_ball = 0; num_ball < nbre_bal; num_ball++) {
 
             int statut_temp = 0;
-            statut_temp = getTab_balle().get(getNum_ball()).Get_Statut_de_la_Balle();
+            statut_temp = getTab_balle().get(num_ball).Get_Statut_de_la_Balle();
             //  if (statut_temp == balle.balle_en_l_air) {
             switch (statut_temp) {
                 case balle.balle_en_l_air:
 
-                    if ((getTab_balle().get(getNum_ball()).position_x > (getTab_poing().X_poing - 50))
-                            && (getTab_balle().get(getNum_ball()).position_x < (getTab_poing().X_poing + 50))
-                            && (getTab_balle().get(getNum_ball()).position_y > (getTab_poing().Y_poing - 50))
-                            && (getTab_balle().get(getNum_ball()).position_y < (getTab_poing().Y_poing + 50))) {
+                    if ((getTab_balle().get(num_ball).position_x > (getTab_poing().X_poing - 50))
+                            && (getTab_balle().get(num_ball).position_x < (getTab_poing().X_poing + 50))
+                            && (getTab_balle().get(num_ball).position_y > (getTab_poing().Y_poing - 50))
+                            && (getTab_balle().get(num_ball).position_y < (getTab_poing().Y_poing + 50))) {
 
-                        getTab_balle().get(getNum_ball()).statut_balle = balle.balle_est_attrapee;
+                        getTab_balle().get(num_ball).statut_balle = balle.balle_est_attrapee;
                         balle_attrapee = true;
+
+
                         int score_temp;
-                        if (getTab_balle().get(getNum_ball()).avion_vert == true) {
+                        if (getTab_balle().get(num_ball).avion_vert == true) {
                             score_temp = (-100);
                             setScore(getScore() + score_temp);
                             if (getTab_balle().get(getNum_ball()).mutex_son == false) {
@@ -262,6 +265,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                                 getTab_balle().get(getNum_ball()).mutex_son = true;
                             }
                         }
+                        incrementeScoreGeneral(getTab_score()[num_ball].get_score());
 
                         getTab_score()[getNum_ball()].setX_score(getTab_balle().get(getNum_ball()).position_x);
                         getTab_score()[getNum_ball()].setY_score(getTab_balle().get(getNum_ball()).position_y);
@@ -380,15 +384,15 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
     private void gere_score() {
         int b = getNbre_bal();
-        //  for (setNum_ball(0); getNum_ball() < getNbre_bal(); setNum_ball(getNum_ball() + 1)) {
         for (int i = 0; i < b; i++) {
             if (getTab_score()[i].getDuree_vie_score() > 10) {
-                getTab_score()[i].setY_score(getTab_score()[i].getY_score()-1);
+                getTab_score()[i].setY_score(getTab_score()[i].getY_score() - 10);
+                getTab_score()[i].decremente_vie_score();
 
             }
 
-            if (getTab_score()[i].getDuree_vie_score() > 1500) {
-                 getTab_score()[i].setScore_a_afficher(false);
+            if (getTab_score()[i].getDuree_vie_score() > 150) {
+                getTab_score()[i].setScore_a_afficher(false);
 
             }
         }
@@ -1139,6 +1143,14 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         this.image_gameOver = image_gameOver;
     }
 
+    public int getScoreGeneral() {
+        return scoreGeneral;
+    }
+
+    public void setScoreGeneral(int scoreGeneral) {
+        this.scoreGeneral = scoreGeneral;
+    }
+
 
     class MyTimerTask extends TimerTask {
         private String mouch;
@@ -1228,7 +1240,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             // cx2 = cx1 + 20;// + dx;
             // cy2 = cy1 + 20;// + dx;
 
-            setNm_balle_ds_camion(getMcamion().nombre_de_balle_dans_la_remorque);
+            setNm_balle_ds_camion(getMcamion().getNombre_de_balle_dans_la_remorque());
         }
 
         public String getMouch() {
@@ -1325,6 +1337,10 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         }
     }
 
+    private void incrementeScoreGeneral(int incr) {
+        setScoreGeneral(getScoreGeneral() + incr);
+    }
+
     private Canvas dessine_jeux(Canvas canvas) {
         getmBitmapPaint().setTextSize(40);
         getmBackgroundImage().draw(canvas);
@@ -1333,8 +1349,10 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
         canvas.drawRect(10, getHauteur_ecran() - 300 - getPuissance_temporaire(), 30, getHauteur_ecran() - 300, paint);
 
-        canvas.drawText("x:" + getPos_X() + " y:" + getPos_Y() + " z:" + getPos_Z(), 300,
-                300, getmBitmapPaint());
+        // canvas.drawText("x:" + getPos_X() + " y:" + getPos_Y() + " z:" + getPos_Z(), 300,
+        //         300, getmBitmapPaint());
+
+
         for (setNum_ball(0); getNum_ball() < getNbre_bal() - 1; setNum_ball(getNum_ball() + 1)) {
             getTab_balle().get(getNum_ball()).dessine(canvas);
 
@@ -1357,14 +1375,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                 getMcamion().getPosition_y(), getMcamion().position_remorque_B,
                 getMcamion().getPosition_y() + 150);
         getMcamion().image[0].draw(canvas);
-        getmBitmapPaint().setColor(Color.MAGENTA);
-        setChaine(String.format("score %d", getScore()));
-        canvas.drawText(getChaine(), 50, getPosition_y_score(), getmBitmapPaint());
-        setChaine(String.format("%d", getNm_balle_ds_camion()));
-        canvas.drawText(getChaine(), getMcamion().position_x + 20,
-                getMcamion().getPosition_y() + 50, getmBitmapPaint());
-        byte num_nuage;
-        for (num_nuage = 0; num_nuage < getNbre_nuage(); num_nuage++) {
+
+        for (byte num_nuage = 0; num_nuage < getNbre_nuage(); num_nuage++) {
 
             if (getTab_nuages().get(num_nuage).affiche_nuage == true) {
                 getImage_nuage()[num_nuage].setBounds(
@@ -1379,9 +1391,10 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         }
 
 
-        for (int babal= 0; babal < getNbre_bal(); babal++) {
+        for (int babal = 0; babal < getNbre_bal(); babal++) {
             if (getTab_score()[babal].isScore_a_afficher() == true) {
-                setChaine(String.format("!!%d", getTab_score()[babal].get_score()));
+                setChaine(String.format("%d points", getTab_score()[babal].get_score()));
+
                 canvas.drawText(getChaine(), getTab_score()[babal].getX_score(),
                         getTab_score()[babal].getY_score(), getmBitmapPaint());
             }
@@ -1392,6 +1405,18 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             canvas.drawText(getChaine(), 50, 550, getmBitmapPaint());
 
         }
+        getmBitmapPaint().setColor(Color.YELLOW);
+        setChaine(String.format("score %d", getScore()));
+        getmBitmapPaint().setTextSize(80);
+        canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() *3/4, getHauteur_ecran() / 15, getmBitmapPaint());
+
+        getmBitmapPaint().setColor(Color.WHITE);
+        getmBitmapPaint().setTextSize(40);
+        canvas.drawText(getChaine(), 50, getPosition_y_score(), getmBitmapPaint());
+        setChaine(String.format("%d", getMcamion().getNombre_de_balle_dans_la_remorque()));
+        canvas.drawText(getChaine(), getMcamion().position_x + 20,
+                getMcamion().getPosition_y() + 50, getmBitmapPaint());
+
         if (etatJeuFini == 1) {
            /* getImage_gameOver()[0].setBounds(getTab_poing().X_poing, getTab_poing().Y_poing,
                     getTab_poing().X_poing + 100, getTab_poing().Y_poing + 100);*/

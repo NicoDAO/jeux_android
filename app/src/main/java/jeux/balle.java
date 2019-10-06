@@ -45,12 +45,13 @@ public class balle extends Jeux_generique {
 	public boolean balle_dans_la_remorque = false;
 	public boolean balle_dans_le_camion_etat_avant = false;
 	public int statut_balle = 0;
-	static final int init_la_balle = 1;
+	private static final int init_la_balle = 1;
 	public static final int balle_en_l_air = 2;
 	public static final int balle_est_attrapee = 3;
 	public static final int balle_dans_le_camion = 4;
 	static final int balle_est_echappee = 5;
 	static final int balle_tombe = 6;
+	public static final int balle_perdu = 7;
 	private static byte num_balle_lance = 0;
 	private int compteur_au_pif = 0;
 	private short duree_mutex = 0;
@@ -61,7 +62,7 @@ public class balle extends Jeux_generique {
 	private int pos_au_pif_dans_camion_Y;
 
 	private int[] carto_vitesse = { 9, 7, 4, 3, 2, 1, 2, 3, 4, 7, 9 };
-	private int[] carto_vitesse_nrmalle = { 20, 25, 30, 35, 35, 30, 25, 20, 1,
+	private int[] carto_vitesse_nrmalle = { 10, 25, 30, 35, 35, 30, 25, 20, 1,
 			1 };
 	// private int[] carto_vitesse_chute = { 10, 9, 8, 7, 6, 5, 3, 3, 2, 2, 2 };
 	private int[] carto_vitesse_chute = { 8, 7, 6, 6, 6, 5, 4, 3, 2, 1, 1, 1, 1 };
@@ -89,6 +90,13 @@ public class balle extends Jeux_generique {
 			{ 100, 96, 96, 95, 93, 90, 70, 40, 30, 10 } };
 
 	public static byte niveau = 0;
+
+	public static int getInit_la_balle() {
+		return init_la_balle;
+	}
+	private int etatJeuFini = 0;
+
+
 
 	// http://bruce-eckel.developpez.com/livres/java/traduction/tij2/?chap=3&page=0
 	public void initialise_balle() {
@@ -165,18 +173,18 @@ public class balle extends Jeux_generique {
 			break;
 		case balle_en_l_air:
 			angle = 0;
-			duree_sleep = 50 - calcul_vitesse_balle_en_l_air(position_x, sens);
+			duree_sleep = (50 - calcul_vitesse_balle_en_l_air(position_x, sens))/2;
 
 			vitesse = 2;
 			if (sens) {
 				position_x += vitesse;// vitesse;
 				if (position_x < 10) {
 
-					position_y += 4;
+					position_y += 5;
 
 				} else if (position_x < 30) {
 
-					position_y += 2;
+					position_y +=3;
 
 				} else if (position_x > (coordonnees_X_de_retour)) {
 
@@ -215,7 +223,7 @@ public class balle extends Jeux_generique {
 				}
 			}
 			if (position_y > (hauteur_ecran * 0.6))
-				statut_balle = init_la_balle;
+				statut_balle = balle_perdu;
 			break;
 		case balle_est_attrapee:
 			position_Y_avant_depart = position_y;
@@ -223,12 +231,12 @@ public class balle extends Jeux_generique {
 			break;
 		case balle_tombe:
 			vitesse = calcul_vitesse_chute_balle(position_y);
-			System.out.println("balle tombe y =" +position_y + " remorque :" + hauteur_ecran );
+			//System.out.println("balle tombe y =" +position_y + " remorque :" + hauteur_ecran );
             if (sens)
 				position_x++;
 			if (!sens)
 				position_x--;
-			duree_sleep = 100 / vitesse;
+			duree_sleep = 50 / vitesse;
 			position_y += vitesse;
 			Random randomGenerator1 = new Random();
 			pos_au_pif_dans_camion_X = randomGenerator1.nextInt(100);
@@ -273,9 +281,13 @@ public class balle extends Jeux_generique {
 			if (position_x <= 0) {
 				son3_a_relancer = true;
 				position_y = 10;
-				statut_balle = init_la_balle;
+				statut_balle = getInit_la_balle();
 			}
 			break;
+
+			case balle_perdu:
+				etatJeuFini = 1;
+				break;
 
 		}
 
@@ -286,6 +298,7 @@ public class balle extends Jeux_generique {
 			}
 
 		}
+
 	}
 
     public int getCouleur() {
@@ -399,4 +412,8 @@ public class balle extends Jeux_generique {
         }
 
     }
+
+	public int getEtatJeuFini() {
+		return etatJeuFini;
+	}
 }

@@ -1,7 +1,7 @@
 package jeux;
 
 import android.content.Context;
-import android.content.res.Configuration;
+
 import nicolas.console.pr.R;
 import java.util.Random;
 
@@ -26,14 +26,14 @@ public class camion extends Jeux_generique{
 
 	public void decremente_balle_dans_cammion(int num_balle) {
 
-		if (nombre_de_balle_dans_la_remorque < 1)
+		if (getNombre_de_balle_dans_la_remorque() < 1)
 			return;
 		enleve_la_balle_de_l_emplacement(num_balle);
-		nombre_de_balle_dans_la_remorque--;
+		setNombre_de_balle_dans_la_remorque(getNombre_de_balle_dans_la_remorque() - 1);
 	}
 
 	public void incremente_balle_dans_cammion(int num_balle) {
-		if (nombre_de_balle_dans_la_remorque > nombre_de_balles_max_ds_remorque)
+		if (getNombre_de_balle_dans_la_remorque() > nombre_de_balles_max_ds_remorque)
 			return;
 
 	}
@@ -57,9 +57,9 @@ public class camion extends Jeux_generique{
 	private void enleve_la_balle_de_l_emplacement(int num_balle) {
 		short num_pos = 0;
 		for (num_pos = 0; num_pos < nombre_de_balles_max_ds_remorque; num_pos++) {
-			if (tab_balle_dans_remorque[nombre_de_balle_dans_la_remorque].numero_balle == num_balle) {
+			if (tab_balle_dans_remorque[getNombre_de_balle_dans_la_remorque()].numero_balle == num_balle) {
 				// si la balle concernee est dans cet emplacement, on l enleve
-				tab_balle_dans_remorque[nombre_de_balle_dans_la_remorque].numero_balle = 0;
+				tab_balle_dans_remorque[getNombre_de_balle_dans_la_remorque()].numero_balle = 0;
 				return;
 
 			}
@@ -73,10 +73,10 @@ public class camion extends Jeux_generique{
 	}
 
 	public void calcul_coordonees_dela_balle_dans_la_remorque(int num_b) {
-		if (nombre_de_balle_dans_la_remorque > 0) {
-			if (nombre_de_balle_dans_la_remorque < nombre_de_balles_max_ds_remorque) {
+		if (getNombre_de_balle_dans_la_remorque() > 0) {
+			if (getNombre_de_balle_dans_la_remorque() < nombre_de_balles_max_ds_remorque) {
 				int b;
-				for (b = 0; b < nombre_de_balle_dans_la_remorque; b++) {
+				for (b = 0; b < getNombre_de_balle_dans_la_remorque(); b++) {
 					if (tab_balle_dans_remorque[b].numero_balle == num_b) {
 						calcul_postion_balle_en_fonction_de_son_index(b);
 						return;
@@ -133,16 +133,23 @@ public class camion extends Jeux_generique{
 	//public int position_y_camion;
 	//public int position_remorque_A = 0;
 	public int position_remorque_B = 0;
-	public int nombre_de_balle_dans_la_remorque = 0;
+	private int nombre_de_balle_dans_la_remorque = 0;
 	public int largeur_remorque = 200;
 	public int hauteur_remorque = 100;
 
 	public void met_a_jour_nombre_balle_camion(int nb_balle) {
-		nombre_de_balle_dans_la_remorque = nb_balle;
+		setNombre_de_balle_dans_la_remorque(nb_balle);
 	}
 
 	private void avance_camion() {
 
 	}
 
+	public int getNombre_de_balle_dans_la_remorque() {
+		return nombre_de_balle_dans_la_remorque;
+	}
+
+	public void setNombre_de_balle_dans_la_remorque(int nombre_de_balle_dans_la_remorque) {
+		this.nombre_de_balle_dans_la_remorque = nombre_de_balle_dans_la_remorque;
+	}
 }
