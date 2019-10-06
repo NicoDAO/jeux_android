@@ -90,6 +90,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     // Drawable[] image_avion;
     private Drawable[] image_nuage;
     private Drawable[] image_poing;
+    private Drawable[] image_gameOver;
     // Drawable[] image_chariot;
     private Drawable[] image_chasseur;
     //Drawable[] image_bras_gauche;
@@ -118,6 +119,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     private static final int MENU_QUIT = 5;
     private boolean initialise = false;
 
+    private int  etatJeuFini= 0;
     /**
      * Called when the activity is first created.
      */
@@ -222,14 +224,16 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         balle.coordonnees_remorques_X = getMcamion().getPosition_y();
     }
 
-    private boolean test_si_les_balle_sont_attrapees() {
+    private boolean test_etat_balles() {
         boolean balle_attrapee = false;
 
         for (num_ball = 0; num_ball < nbre_bal; num_ball++) {
 
             int statut_temp = 0;
             statut_temp = getTab_balle().get(getNum_ball()).Get_Statut_de_la_Balle();
-            if (statut_temp == balle.balle_en_l_air) {
+          //  if (statut_temp == balle.balle_en_l_air) {
+            switch (statut_temp){
+                case  balle.balle_en_l_air:
 
                 if ((getTab_balle().get(getNum_ball()).position_x > (getTab_poing().X_poing - 50))
                         && (getTab_balle().get(getNum_ball()).position_x < (getTab_poing().X_poing + 50))
@@ -265,10 +269,48 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                     getTab_score()[getNum_ball()].duree_vie_score = 0;
 
                 }
+                break;
+
+
+
+                case  balle.balle_perdu:
+                        etatJeuFini = 1;
+
+                  //  getImage_gameOver()[1].draw(canvas);
+                    break;
+
+                default:
+                  //  throw new IllegalStateException("Unexpected value: " + statut_temp);
             }
+
         }
         return balle_attrapee;
     }
+    private boolean test_balle_perdu() {
+        boolean balle_attrapee = false;
+
+        for (num_ball = 0; num_ball < nbre_bal; num_ball++) {
+
+            int statut_temp = 0;
+            statut_temp = getTab_balle().get(getNum_ball()).Get_Statut_de_la_Balle();
+            //  if (statut_temp == balle.balle_en_l_air) {
+            switch (statut_temp){
+
+
+                case  balle.balle_perdu:
+                    etatJeuFini = 1;
+
+                    //  getImage_gameOver()[1].draw(canvas);
+                    break;
+
+                default:
+                    //  throw new IllegalStateException("Unexpected value: " + statut_temp);
+            }
+
+        }
+        return balle_attrapee;
+    }
+
 
     private void demarre_les_nuages() {
         byte num_nuage = 0;
@@ -426,32 +468,20 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     void init_images() {
         setmBitmapPaint(new Paint(Paint.DITHER_FLAG));
 
-        //tab_balle = new balle[nbre_bal + 1];
         setTab_score(new affiche_score[getNbre_bal() + 1]);
-        //image_avion = new Drawable[nbre_bal + 1];
         setImage_poing(new Drawable[2]);
-        // image_chariot = new Drawable[1];
+        setImage_gameOver(new Drawable[1]);
         setImage_nuage(new Drawable[getNbre_nuage() + 1]);
-        //tab_nuages = new nuage[nbre_nuage + 1];
-       /* image_chasseur = new Drawable[nbre_membre_chasseur + 1];
-        image_bras_droite = new Drawable[1];
-        image_bras_gauche = new Drawable[1];
-
-        image_bras_droite[0] = getBaseContext().getResources().getDrawable(
-                R.drawable.bras_droite);
-
-        image_bras_gauche[0] = getBaseContext().getResources().getDrawable(
-                R.drawable.bras_gauche);*/
         getImage_poing()[1] = getBaseContext().getResources().getDrawable(
                 R.drawable.poingxcf);
-/*        image_chariot[0] = getBaseContext().getResources().getDrawable(
-                R.drawable.chariot);*/
+       getImage_gameOver()[0] = getBaseContext().getResources().getDrawable(
+                R.drawable.game_over);
+
 
     }
 
     void init_objet() {
         setTab_poing(new poing());
-        // g_gestion_appli = new gestion_appli();
         setG_niveau(new gestion_niveaux());
         setMcamion(new camion(this.getBaseContext()));
         getMcamion().setContext(getBaseContext());
@@ -814,7 +844,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         return tab_poing;
     }
     private int test_si_poing_en_bas(){
-        System.out.println("le poing est en " + getTab_poing().Y_poing);
+        //System.out.println("le poing est en " + getTab_poing().Y_poing);
         if(getTab_poing().Y_poing >(getHauteur_ecran()*0.6)) return 1;//TODO mettre une methode pour calculer
         return 0;
     }
@@ -963,7 +993,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         return num_ball_ds_remorque;
     }
 
-    public void setNum_ball_ds_remorque(int num_ball_ds_remorque) {
+    public void setNum_ball_ds_remorque(int num_bfall_ds_remorque) {
         this.num_ball_ds_remorque = num_ball_ds_remorque;
     }
 
@@ -1087,6 +1117,15 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         this.puissance_temporaire = puissance_temporaire;
     }
 
+    public Drawable[] getImage_gameOver() {
+        return image_gameOver;
+    }
+
+    public void setImage_gameOver(Drawable[] image_gameOver) {
+        this.image_gameOver = image_gameOver;
+    }
+
+
     class MyTimerTask extends TimerTask {
         private String mouch;
 
@@ -1118,16 +1157,19 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                     break;
 
             }
-
+            test_balle_perdu();
             if (getTab_poing().le_poing_est_parti == false) {
                 getTab_poing().X_poing = getLechasseur().x_torse_haut - 50;
                 getTab_poing().Y_poing = getLechasseur().y_torse_haut - 50;
                 getLechasseur().etat_chasseur = 0;
             } else {
 
-                if (test_si_les_balle_sont_attrapees()) {
+                if (test_etat_balles()) {
 
                 }
+              /*  if(etatJeuFini == 1){
+                    //TODO afficher gameover
+                }*/
                 getLechasseur().etat_chasseur = 1;
             }
 
@@ -1335,6 +1377,13 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             getmBitmapPaint().setTextSize(100);
             canvas.drawText(getChaine(), 50, 550, getmBitmapPaint());
 
+        }
+        if( etatJeuFini ==1){
+           /* getImage_gameOver()[0].setBounds(getTab_poing().X_poing, getTab_poing().Y_poing,
+                    getTab_poing().X_poing + 100, getTab_poing().Y_poing + 100);*/
+            getImage_gameOver()[0].setBounds(getLargeur_ecran()/10,getHauteur_ecran()/4,getLargeur_ecran()*9/10,getHauteur_ecran()*3/4);
+
+            getImage_gameOver()[0].draw(canvas);
         }
         return canvas;
     }
