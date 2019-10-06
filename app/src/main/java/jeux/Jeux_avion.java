@@ -119,7 +119,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     private static final int MENU_QUIT = 5;
     private boolean initialise = false;
 
-    private int  etatJeuFini= 0;
+    private int etatJeuFini = 0;
+
     /**
      * Called when the activity is first created.
      */
@@ -231,61 +232,61 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
             int statut_temp = 0;
             statut_temp = getTab_balle().get(getNum_ball()).Get_Statut_de_la_Balle();
-          //  if (statut_temp == balle.balle_en_l_air) {
-            switch (statut_temp){
-                case  balle.balle_en_l_air:
+            //  if (statut_temp == balle.balle_en_l_air) {
+            switch (statut_temp) {
+                case balle.balle_en_l_air:
 
-                if ((getTab_balle().get(getNum_ball()).position_x > (getTab_poing().X_poing - 50))
-                        && (getTab_balle().get(getNum_ball()).position_x < (getTab_poing().X_poing + 50))
-                        && (getTab_balle().get(getNum_ball()).position_y > (getTab_poing().Y_poing - 50))
-                        && (getTab_balle().get(getNum_ball()).position_y < (getTab_poing().Y_poing + 50))) {
+                    if ((getTab_balle().get(getNum_ball()).position_x > (getTab_poing().X_poing - 50))
+                            && (getTab_balle().get(getNum_ball()).position_x < (getTab_poing().X_poing + 50))
+                            && (getTab_balle().get(getNum_ball()).position_y > (getTab_poing().Y_poing - 50))
+                            && (getTab_balle().get(getNum_ball()).position_y < (getTab_poing().Y_poing + 50))) {
 
-                    getTab_balle().get(getNum_ball()).statut_balle = balle.balle_est_attrapee;
-                    balle_attrapee = true;
-                    int score_temp;
-                    if (getTab_balle().get(getNum_ball()).avion_vert == true) {
-                        score_temp = (-100);
-                        setScore(getScore() + score_temp);
-                        if (getTab_balle().get(getNum_ball()).mutex_son == false) {
-                            getMjouer_son().playSound(3);
-                            getTab_balle().get(getNum_ball()).mutex_son = true;
+                        getTab_balle().get(getNum_ball()).statut_balle = balle.balle_est_attrapee;
+                        balle_attrapee = true;
+                        int score_temp;
+                        if (getTab_balle().get(getNum_ball()).avion_vert == true) {
+                            score_temp = (-100);
+                            setScore(getScore() + score_temp);
+                            if (getTab_balle().get(getNum_ball()).mutex_son == false) {
+                                getMjouer_son().playSound(3);
+                                getTab_balle().get(getNum_ball()).mutex_son = true;
+                            }
+
+                        } else {
+                            setReduit_suite_capture(50);
+
+                            score_temp = (11 * getTab_balle().get(getNum_ball()).vitesse);
+                            setScore(getScore() + score_temp);
+                            if (getTab_balle().get(getNum_ball()).mutex_son == false) {
+                                getMjouer_son().playSound(4);
+                                getTab_balle().get(getNum_ball()).mutex_son = true;
+                            }
                         }
 
-                    } else {
-                        setReduit_suite_capture(50);
+                        getTab_score()[getNum_ball()].setX_score(getTab_balle().get(getNum_ball()).position_x);
+                        getTab_score()[getNum_ball()].setY_score(getTab_balle().get(getNum_ball()).position_y);
+                        getTab_score()[getNum_ball()].setScore_a_afficher(true);
+                        getTab_score()[getNum_ball()].set_score(score_temp);
+                        getTab_score()[getNum_ball()].setDuree_vie_score(100);
 
-                        score_temp = (11 * getTab_balle().get(getNum_ball()).vitesse);
-                        setScore(getScore() + score_temp);
-                        if (getTab_balle().get(getNum_ball()).mutex_son == false) {
-                            getMjouer_son().playSound(4);
-                            getTab_balle().get(getNum_ball()).mutex_son = true;
-                        }
                     }
-
-                    getTab_score()[getNum_ball()].x_score = getTab_balle().get(getNum_ball()).position_x;
-                    getTab_score()[getNum_ball()].y_score = getTab_balle().get(getNum_ball()).position_y;
-                    getTab_score()[getNum_ball()].score_a_afficher = true;
-                    getTab_score()[getNum_ball()]._score = score_temp;
-                    getTab_score()[getNum_ball()].duree_vie_score = 0;
-
-                }
-                break;
+                    break;
 
 
+                case balle.balle_perdu:
+                    etatJeuFini = 1;
 
-                case  balle.balle_perdu:
-                        etatJeuFini = 1;
-
-                  //  getImage_gameOver()[1].draw(canvas);
+                    //  getImage_gameOver()[1].draw(canvas);
                     break;
 
                 default:
-                  //  throw new IllegalStateException("Unexpected value: " + statut_temp);
+                    //  throw new IllegalStateException("Unexpected value: " + statut_temp);
             }
 
         }
         return balle_attrapee;
     }
+
     private boolean test_balle_perdu() {
         boolean balle_attrapee = false;
 
@@ -294,10 +295,10 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             int statut_temp = 0;
             statut_temp = getTab_balle().get(getNum_ball()).Get_Statut_de_la_Balle();
             //  if (statut_temp == balle.balle_en_l_air) {
-            switch (statut_temp){
+            switch (statut_temp) {
 
 
-                case  balle.balle_perdu:
+                case balle.balle_perdu:
                     etatJeuFini = 1;
 
                     //  getImage_gameOver()[1].draw(canvas);
@@ -329,7 +330,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     private void demarre_les_balles() {
         if (num_balle_a_lancer++ >= nbre_bal)
             return;
-        
+
 
         if (getTab_balle().get(getNum_balle_a_lancer()).thread_lance == false) {
             getTab_balle().get(getNum_balle_a_lancer()).start();
@@ -378,15 +379,26 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     }
 
     private void gere_score() {
-        for (setNum_ball(0); getNum_ball() < getNbre_bal(); setNum_ball(getNum_ball() + 1)) {
+        int b = getNbre_bal();
+        //  for (setNum_ball(0); getNum_ball() < getNbre_bal(); setNum_ball(getNum_ball() + 1)) {
+        for (int i = 0; i < b; i++) {
+            if (getTab_score()[i].getDuree_vie_score() > 10) {
+                getTab_score()[i].setY_score(getTab_score()[i].getY_score()-1);
 
-            if (getTab_score()[getNum_ball()].duree_vie_score++ > 10) {
-                getTab_score()[getNum_ball()].y_score -= 4;
             }
-            if (getTab_score()[getNum_ball()].duree_vie_score++ > 150) {
-                getTab_score()[getNum_ball()].score_a_afficher = false;
+
+            if (getTab_score()[i].getDuree_vie_score() > 1500) {
+                 getTab_score()[i].setScore_a_afficher(false);
+
             }
         }
+           /* if (getTab_score()[getNum_ball()].setDuree_vie_score(getTab_score()[getNum_ball()].getDuree_vie_score() + 1) > 10) {
+                getTab_score()[getNum_ball()].setY_score(getTab_score()[getNum_ball()].getY_score() - 4);
+            }
+            if (getTab_score()[getNum_ball()].setDuree_vie_score(getTab_score()[getNum_ball()].getDuree_vie_score() + 1) > 150) {
+                getTab_score()[getNum_ball()].setScore_a_afficher(false);
+            }*/
+        //  }
     }
 
     private int temps_debut = 0;
@@ -415,7 +427,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                         setY_viseur(600 - getForce_de_tir());
                         setPuissance_state((byte) 0);
 //ici
-                        if(test_si_poing_en_bas() == 1){
+                        if (test_si_poing_en_bas() == 1) {
                             getTab_poing().lance_le_poing_vers_cible(getX1(), getY_viseur());
                         }
                         setPuissance_temporaire(0);
@@ -474,7 +486,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         setImage_nuage(new Drawable[getNbre_nuage() + 1]);
         getImage_poing()[1] = getBaseContext().getResources().getDrawable(
                 R.drawable.poingxcf);
-       getImage_gameOver()[0] = getBaseContext().getResources().getDrawable(
+        getImage_gameOver()[0] = getBaseContext().getResources().getDrawable(
                 R.drawable.game_over);
 
 
@@ -843,9 +855,11 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     public poing getTab_poing() {
         return tab_poing;
     }
-    private int test_si_poing_en_bas(){
+
+    private int test_si_poing_en_bas() {
         //System.out.println("le poing est en " + getTab_poing().Y_poing);
-        if(getTab_poing().Y_poing >(getHauteur_ecran()*0.6)) return 1;//TODO mettre une methode pour calculer
+        if (getTab_poing().Y_poing > (getHauteur_ecran() * 0.6))
+            return 1;//TODO mettre une methode pour calculer
         return 0;
     }
 
@@ -1365,11 +1379,11 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         }
 
 
-        for (setNum_ball(1); getNum_ball() < getNbre_bal(); setNum_ball(getNum_ball() + 1)) {
-            if (getTab_score()[getNum_ball()].score_a_afficher == true) {
-                setChaine(String.format("%d", getTab_score()[getNum_ball()]._score));
-                canvas.drawText(getChaine(), getTab_score()[getNum_ball()].x_score,
-                        getTab_score()[getNum_ball()].y_score, getmBitmapPaint());
+        for (int babal= 0; babal < getNbre_bal(); babal++) {
+            if (getTab_score()[babal].isScore_a_afficher() == true) {
+                setChaine(String.format("!!%d", getTab_score()[babal].get_score()));
+                canvas.drawText(getChaine(), getTab_score()[babal].getX_score(),
+                        getTab_score()[babal].getY_score(), getmBitmapPaint());
             }
         }
         if (getG_niveau().affiche_niveau_duree > 0) {
@@ -1378,10 +1392,10 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             canvas.drawText(getChaine(), 50, 550, getmBitmapPaint());
 
         }
-        if( etatJeuFini ==1){
+        if (etatJeuFini == 1) {
            /* getImage_gameOver()[0].setBounds(getTab_poing().X_poing, getTab_poing().Y_poing,
                     getTab_poing().X_poing + 100, getTab_poing().Y_poing + 100);*/
-            getImage_gameOver()[0].setBounds(getLargeur_ecran()/10,getHauteur_ecran()/4,getLargeur_ecran()*9/10,getHauteur_ecran()*3/4);
+            getImage_gameOver()[0].setBounds(getLargeur_ecran() / 10, getHauteur_ecran() / 4, getLargeur_ecran() * 9 / 10, getHauteur_ecran() * 3 / 4);
 
             getImage_gameOver()[0].draw(canvas);
         }
