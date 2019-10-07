@@ -61,6 +61,8 @@ public class balle extends Jeux_generique {
 	private int pos_au_pif_dans_camion_X;
 	private int pos_au_pif_dans_camion_Y;
 
+	private int limite_Basse = 0;
+
 	private int[] carto_vitesse = { 9, 7, 4, 3, 2, 1, 2, 3, 4, 7, 9 };
 	private int[] carto_vitesse_nrmalle = { 10, 25, 30, 35, 35, 30, 25, 20, 1,
 			1 };
@@ -95,7 +97,6 @@ public class balle extends Jeux_generique {
 		return init_la_balle;
 	}
 	private int etatJeuFini = 0;
-
 
 
 	// http://bruce-eckel.developpez.com/livres/java/traduction/tij2/?chap=3&page=0
@@ -222,12 +223,16 @@ public class balle extends Jeux_generique {
 
 				}
 			}
-			if (position_y > (hauteur_ecran * 0.6))
+			if (position_y >this.limite_Basse )
 				statut_balle = balle_perdu;
 			break;
 		case balle_est_attrapee:
 			position_Y_avant_depart = position_y;
 			statut_balle = balle_tombe;
+            setX_score(position_x);
+            setY_score(position_y);
+            setScore_a_afficher(true);
+            duree_vie_score = 100;
 			break;
 		case balle_tombe:
 			vitesse = calcul_vitesse_chute_balle(position_y);
@@ -416,4 +421,12 @@ public class balle extends Jeux_generique {
 	public int getEtatJeuFini() {
 		return etatJeuFini;
 	}
+
+    public int getLimite_Basse() {
+        return limite_Basse;
+    }
+
+    public void setLimite_Basse(int limite_Basse) {
+        this.limite_Basse = limite_Basse;
+    }
 }

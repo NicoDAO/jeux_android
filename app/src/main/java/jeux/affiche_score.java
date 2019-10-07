@@ -10,6 +10,7 @@ public class affiche_score {
     private int duree_vie_score;
     private boolean score_a_afficher;
 
+
     public int getX_score() {
         return x_score;
     }
