@@ -1,4 +1,4 @@
-#Sat Oct 05 13:10:04 CEST 2019
-base.0=/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Mon Oct 07 00:04:05 CEST 2019
+base.0=/home/nicolas/Android/git/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

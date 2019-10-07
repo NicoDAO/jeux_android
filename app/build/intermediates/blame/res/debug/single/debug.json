@@ -1,298 +1,302 @@
 [
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_launcher.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/ic_launcher.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_corps.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/corps.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_corps.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/corps.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_corps.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/corps.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_jambes_gauche.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/jambes_gauche.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_fond.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/fond.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_whawha2_1.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/whawha2_1.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_poingxcf.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/poingxcf.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_corps.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/corps.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_perdu.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/perdu.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_martien.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/martien.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_chariot.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/chariot.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_martien.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/martien.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_wifi_grey.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/wifi_grey.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_bras_gauche.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/bras_gauche.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_soucoupe.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/soucoupe.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_chariot.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/chariot.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_patte.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/patte.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_poingxcf.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/poingxcf.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_tete.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/tete.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_bras_gauche.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/bras_gauche.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_launcher.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/ic_launcher.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_wifi_grey.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/wifi_grey.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_jambes_droite.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/jambes_droite.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_nuage.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/nuage.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/layout_main.xml.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/layout/main.xml"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_chariot.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/chariot.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_bras_gauche.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/bras_gauche.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_bras_droite.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/bras_droite.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_soucoupe_vert.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/soucoupe_vert.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/layout_aqwxsz.xml.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/layout/aqwxsz.xml"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_partysequence.mp3.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/partysequence.mp3"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_son3.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/son3.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_jambes_gauche.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/jambes_gauche.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_jambes_droite.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/jambes_droite.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_nuagephoto.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/nuagephoto.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_gros_nuage.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/gros_nuage.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_saint_mar.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/saint_mar.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_cestparti.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/cestparti.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_tete.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/tete.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_perdu.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/perdu.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_whawha2_1.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/whawha2_1.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_biip.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/biip.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_jambes_droite.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/jambes_droite.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_gros_nuage.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/gros_nuage.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_nuage.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/nuage.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_soucoupe_vert.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/soucoupe_vert.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_bras_droite.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/bras_droite.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_bras_droite.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/bras_droite.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_jambes_droite.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/jambes_droite.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_wifi_grey.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/wifi_grey.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_soucoupe.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/soucoupe.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_tete.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/tete.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_son1.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/son1.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_avion.jpg.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/avion.jpg"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_nuagephoto.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/nuagephoto.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable_ship.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable/ship.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_soucoupe.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/soucoupe.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_avion.jpg.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/avion.jpg"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_fond.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/fond.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_bras_gauche.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/bras_gauche.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable_ship.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable/ship.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_nuagephoto.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/nuagephoto.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_martien.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/martien.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_son2.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/son2.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_biip.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/biip.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_soucoupe_vert.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/soucoupe_vert.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_martien.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/martien.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_solm.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/solm.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_chariot.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/chariot.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_chariot.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/chariot.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_patte.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/patte.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_bras_droite.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/bras_droite.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/layout_aqwxsz.xml.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/layout/aqwxsz.xml"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_jambes_droite.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/jambes_droite.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_explosion.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/explosion.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_tete.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/tete.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_launcher.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_launcher.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/ic_launcher.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_corps.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/corps.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_patte.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/patte.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_son2.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/son2.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_fond.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/fond.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_saint_mar.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/saint_mar.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_corps.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/corps.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_bras_droite.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/bras_droite.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_soucoupe.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/soucoupe.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_patte.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/patte.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_wifi_grey.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/wifi_grey.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_whawha2_m1.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/whawha2_m1.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_son1.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/son1.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_wifi_grey.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/wifi_grey.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_tete.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/tete.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_chariot.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/chariot.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_fond.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/fond.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_tete.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/tete.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_whawha2_m1.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/whawha2_m1.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_bras_droite.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/bras_droite.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_nuage.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/nuage.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_solm.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/solm.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_saint_mar.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/saint_mar.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_jambes_gauche.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/jambes_gauche.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_poingxcf.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/poingxcf.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_bras_gauche.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/bras_gauche.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_soucoupe.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/soucoupe.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_martien.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/martien.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_jambes_gauche.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/jambes_gauche.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_soucoupe_vert.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/soucoupe_vert.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_patte.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/patte.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_cestparti.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/cestparti.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_lam.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/lam.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable_game_over.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable/game_over.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_avion.jpg.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/avion.jpg"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_fond.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/fond.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_explosion.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/explosion.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_avion.jpg.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/avion.jpg"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_whawha2_0.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/whawha2_0.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_lam.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/lam.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_nuage.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/nuage.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_poingxcf.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/poingxcf.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_soucoupe_vert.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/soucoupe_vert.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_nuagephoto.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/nuagephoto.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_remineur7.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/remineur7.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-mdpi_martien.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-mdpi/martien.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_wifi_grey.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/wifi_grey.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_launcher.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_jambes_gauche.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/jambes_gauche.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_soucoupe_vert.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/soucoupe_vert.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_avion.jpg.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/avion.jpg"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_jambes_droite.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/jambes_droite.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_son3.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/son3.wav"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_soucoupe.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/soucoupe.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_nuage.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/nuage.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/layout_main.xml.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/layout/main.xml"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_nuage.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/nuage.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_jambes_gauche.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/jambes_gauche.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_gros_nuage.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/gros_nuage.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-xhdpi_fond.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-xhdpi/fond.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_bras_gauche.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/bras_gauche.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_patte.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/patte.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_poingxcf.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/poingxcf.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_remineur7.wav.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/remineur7.wav"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_avion.jpg.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/avion.jpg"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/drawable-ldpi_saint_mar.png.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/drawable-ldpi/saint_mar.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_poingxcf.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/poingxcf.png"
     },
     {
-        "merged": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/build/intermediates/res/merged/debug/raw_partysequence.mp3.flat",
-        "source": "/home/nicolas/Android/paf_les_mouches/paf_les_mouches/app/src/main/res/raw/partysequence.mp3"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_gros_nuage.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/gros_nuage.png"
+    },
+    {
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_whawha2_0.wav.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/whawha2_0.wav"
     }
 ]

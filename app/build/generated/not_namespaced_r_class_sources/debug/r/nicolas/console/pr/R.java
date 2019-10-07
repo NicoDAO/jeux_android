@@ -15,21 +15,22 @@ public final class R {
     public static final int chariot=0x7f010003;
     public static final int corps=0x7f010004;
     public static final int fond=0x7f010005;
-    public static final int gros_nuage=0x7f010006;
-    public static final int ic_launcher=0x7f010007;
-    public static final int jambes_droite=0x7f010008;
-    public static final int jambes_gauche=0x7f010009;
-    public static final int martien=0x7f01000a;
-    public static final int nuage=0x7f01000b;
-    public static final int nuagephoto=0x7f01000c;
-    public static final int patte=0x7f01000d;
-    public static final int poingxcf=0x7f01000e;
-    public static final int saint_mar=0x7f01000f;
-    public static final int ship=0x7f010010;
-    public static final int soucoupe=0x7f010011;
-    public static final int soucoupe_vert=0x7f010012;
-    public static final int tete=0x7f010013;
-    public static final int wifi_grey=0x7f010014;
+    public static final int game_over=0x7f010006;
+    public static final int gros_nuage=0x7f010007;
+    public static final int ic_launcher=0x7f010008;
+    public static final int jambes_droite=0x7f010009;
+    public static final int jambes_gauche=0x7f01000a;
+    public static final int martien=0x7f01000b;
+    public static final int nuage=0x7f01000c;
+    public static final int nuagephoto=0x7f01000d;
+    public static final int patte=0x7f01000e;
+    public static final int poingxcf=0x7f01000f;
+    public static final int saint_mar=0x7f010010;
+    public static final int ship=0x7f010011;
+    public static final int soucoupe=0x7f010012;
+    public static final int soucoupe_vert=0x7f010013;
+    public static final int tete=0x7f010014;
+    public static final int wifi_grey=0x7f010015;
   }
   public static final class id {
     public static final int button1=0x7f020000;
