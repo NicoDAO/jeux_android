@@ -122,7 +122,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
     private int limitebasse_partie = 0;// = (hauteur_ecran*0.6);
     private int etatJeuFini = 0;
-
+    private int niveau_jeu =1;
     /**
      * Called when the activity is first created.
      */
@@ -1002,7 +1002,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     }
 
     public void setNum_ball_ds_remorque(int num_bfall_ds_remorque) {
-        this.num_ball_ds_remorque = num_ball_ds_remorque;
+        this.num_ball_ds_remorque = num_bfall_ds_remorque;
     }
 
     public int getTaille_avant() {
@@ -1175,16 +1175,16 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             }
             test_balle_perdu();
             if (getTab_poing().le_poing_est_parti == false) {
-                getTab_poing().X_poing = getLechasseur().x_torse_haut - 50;
-                getTab_poing().Y_poing = getLechasseur().y_torse_haut - 50;
-                getLechasseur().etat_chasseur = 0;
+                getTab_poing().X_poing = getLechasseur().getX_torse_haut() - 50;
+                getTab_poing().Y_poing = getLechasseur().getY_torse_haut() - 50;
+                getLechasseur().setEtat_chasseur((byte) 0);
             } else {
 
                 if (test_etat_balles()) {
 
                 }
 
-                getLechasseur().etat_chasseur = 1;
+                getLechasseur().setEtat_chasseur((byte) 1);
             }
 
             switch (getT() % 4) {
@@ -1212,7 +1212,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                 getTab_poing().position_initiale_X = getPos_X();
                 getTab_poing().poing_initialise = true;
             }
-            setX1((getPos_Z() * 3) + getLargeur_ecran() / 2);//+ (pos_X) / 5;
+            setX1((getPos_Z() * 4) + getLargeur_ecran() / 2);//+ (pos_X) / 5;
 
             getMcamion().position_x = getX1();
             getLechasseur().setPos_chasseur(getMcamion().position_x - 100);
@@ -1223,6 +1223,9 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             dx = 20 + Math.abs((getPos_X()) / 5);
 
             setNm_balle_ds_camion(getMcamion().getNombre_de_balle_dans_la_remorque());
+            if(getMcamion().getNombre_de_balle_dans_la_remorque() >= (getNbre_bal()-1)){
+                niveau_jeu++;
+            }
         }
 
         public String getMouch() {
@@ -1385,15 +1388,16 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         }
         getmBitmapPaint().setColor(Color.YELLOW);
         setChaine(String.format("score %d", getScore()));
+        canvas.drawText("niveau_jeu " + niveau_jeu, getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 10, getmBitmapPaint());
         getmBitmapPaint().setTextSize(80);
         canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 15, getmBitmapPaint());
 
         getmBitmapPaint().setColor(Color.WHITE);
         getmBitmapPaint().setTextSize(40);
+
         canvas.drawText(getChaine(), 50, getPosition_y_score(), getmBitmapPaint());
-        setChaine(String.format("%d", getMcamion().getNombre_de_balle_dans_la_remorque()));
-        //canvas.drawText(getChaine(), getMcamion().position_x + 20,
-         //       getMcamion().getPosition_y() + 50, getmBitmapPaint());
+        canvas.drawText(""+ getMcamion().getNombre_de_balle_dans_la_remorque(),getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 9, getmBitmapPaint());
+        //canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 15, getmBitmapPaint());
 
         if (etatJeuFini == 1) {
             getImage_gameOver()[0].setBounds(getLargeur_ecran() / 10, getHauteur_ecran() / 4, getLargeur_ecran() * 9 / 10, getHauteur_ecran() * 3 / 4);

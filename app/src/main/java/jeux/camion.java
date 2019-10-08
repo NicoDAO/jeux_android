@@ -35,6 +35,7 @@ public class camion extends Jeux_generique{
 	public void incremente_balle_dans_cammion(int num_balle) {
 		if (getNombre_de_balle_dans_la_remorque() > nombre_de_balles_max_ds_remorque)
 			return;
+		setNombre_de_balle_dans_la_remorque(getNombre_de_balle_dans_la_remorque() + 1);
 
 	}
 
