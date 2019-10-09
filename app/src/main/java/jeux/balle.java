@@ -97,7 +97,10 @@ public class balle extends Jeux_generique {
 		return init_la_balle;
 	}
 	private int etatJeuFini = 0;
-
+	private int arrete_thread = 0;
+	public void tueBalle() {
+		arrete_thread = 1;
+	}
 
 	// http://bruce-eckel.developpez.com/livres/java/traduction/tij2/?chap=3&page=0
 	public void initialise_balle() {
@@ -105,7 +108,7 @@ public class balle extends Jeux_generique {
 		couleur_au_pif = randomGenerator.nextInt(6);
 		Random randomGenerator2 = new Random();
         //image_avion = new Drawable[1];
-
+		arrete_thread = 0;
 		son_au_pif = randomGenerator2.nextInt(3);
 		quel_avion = randomGenerator.nextInt(20);
 		avion_vert = false;
@@ -122,6 +125,7 @@ public class balle extends Jeux_generique {
         }
 
 	}
+
 
 	private int position_X_avant_depart;
 	private int position_Y_avant_depart;
@@ -388,6 +392,7 @@ public class balle extends Jeux_generique {
 			while (!Thread.currentThread().isInterrupted()) {
 				incremente_position();
 				Thread.sleep(duree_sleep);
+				if(arrete_thread ==1)return;
 			}
 		} catch (InterruptedException e) {
 

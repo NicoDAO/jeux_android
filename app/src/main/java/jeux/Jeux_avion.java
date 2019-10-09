@@ -22,6 +22,7 @@ import android.view.View.OnTouchListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.lang.Math;
@@ -34,7 +35,7 @@ import android.graphics.drawable.Drawable;
 import audio.jouer_son;
 
 public class Jeux_avion extends Activity implements OnTouchListener {
-    private static final int nbre_bal = 10;
+    private  int nbre_bal =4;
     private static final int nbre_nuage = 5;
     private static final int nbre_membre_chasseur = 7;
     private SensorManager mSensorManager;
@@ -122,11 +123,12 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
     private int limitebasse_partie = 0;// = (hauteur_ecran*0.6);
     private int etatJeuFini = 0;
-    private int niveau_jeu =1;
+    private int niveau_jeu = 1;
+
     /**
      * Called when the activity is first created.
      */
-    public static int getNbre_bal() {
+    public  int getNbre_bal() {
         return nbre_bal;
     }
 
@@ -266,8 +268,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                             }
                         }
                         incrementeScoreGeneral(score_temp);
-                       getTab_balle().get(num_ball).set_score(score_temp);
-                      // getTab_score()[num_ball].set_score(score_temp);
+                        getTab_balle().get(num_ball).set_score(score_temp);
+                        // getTab_score()[num_ball].set_score(score_temp);
 
 
                     }
@@ -539,7 +541,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             getTab_score()[i] = new affiche_score();
 
         }
-
+        getMcamion().setNombre_de_balle_dans_la_remorque(0);
+        num_balle_a_lancer = 0;
     }
 
     void initialise_jeux() {
@@ -1141,6 +1144,14 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         this.scoreGeneral = scoreGeneral;
     }
 
+    private enum Automate {
+        Demarre,
+        Joue,
+        Fin,
+
+    }
+
+    private int etatJeu = 0;
 
     class MyTimerTask extends TimerTask {
         private String mouch;
@@ -1150,81 +1161,106 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
             int cx1;
             int cy1, cy2;
-            if (!isInitialise()) {
-                demarre_le_jeux();
-                setInitialise(true);
-                return;
-                // initialise_jeux();
-            }
-            if (getT() < 1000) {
-                if ((getT() % 100) == 0)
-                    demarre_les_balles();
-            }
-            setT(getT() + 1);
-            if (getG_niveau().affiche_niveau_duree > 0)
-                getG_niveau().affiche_niveau_duree--;
-            switch (getT()) {
-                case 10:
-                    getMjouer_son().playSound(3);
-                    break;
-                case 33:
-                    getLechasseur().avance_le_chasseur = true;
-
-                    break;
-
-            }
-            test_balle_perdu();
-            if (getTab_poing().le_poing_est_parti == false) {
-                getTab_poing().X_poing = getLechasseur().getX_torse_haut() - 50;
-                getTab_poing().Y_poing = getLechasseur().getY_torse_haut() - 50;
-                getLechasseur().setEtat_chasseur((byte) 0);
-            } else {
-
-                if (test_etat_balles()) {
-
-                }
-
-                getLechasseur().setEtat_chasseur((byte) 1);
-            }
-
-            switch (getT() % 4) {
+            switch (etatJeu) {
                 case 0:
-                    gere_balle_dans_la_remorque();
-                    break;
-                case 1:
-                    gere_score();
-                    break;
-                case 2:
-                    gere_son();
-                    break;
-                case 3:
-                    met_a_jour_postion_remorque_pour_les_balles();
-                    break;
-                case 9:
-                    // canvas = dessine_jeux(canvas);
-                    break;
-            }
-            // met_a_jour_postion_remorque_pour_les_balles();
-            gere_puissance_de_tir(getT());
-            balle.niveau = getG_niveau().get_niveau();
-            if (getTab_poing().poing_initialise == false) {
-                getTab_poing().position_initiale_Y = getPos_Y();
-                getTab_poing().position_initiale_X = getPos_X();
-                getTab_poing().poing_initialise = true;
-            }
-            setX1((getPos_Z() * 4) + getLargeur_ecran() / 2);//+ (pos_X) / 5;
 
-            getMcamion().position_x = getX1();
-            getLechasseur().setPos_chasseur(getMcamion().position_x - 100);
+                    if (!isInitialise()) {
 
-            getMcamion().calcul_coordonees_remorques();
-            cx1 = 200 - getPos_Z();
-            cy1 = 700 + getPos_Y();
-            dx = 20 + Math.abs((getPos_X()) / 5);
+                        demarre_le_jeux();
+                        setInitialise(true);
+                        setT(0);
+                       // return;
+                        // initialise_jeux();
+                    }
+                    if (getT() < 1000) {
+                        if ((getT() % 100) == 0)
+                            demarre_les_balles();
+                    }
+                    setT(getT() + 1);
+                    if (getG_niveau().affiche_niveau_duree > 0)
+                        getG_niveau().affiche_niveau_duree--;
+                    switch (getT()) {
+                        case 10:
+                            getMjouer_son().playSound(3);
+                            break;
+                        case 33:
+                            getLechasseur().avance_le_chasseur = true;
+                            //test ici
 
-            setNm_balle_ds_camion(getMcamion().getNombre_de_balle_dans_la_remorque());
-            if(getMcamion().getNombre_de_balle_dans_la_remorque() >= (getNbre_bal()-1)){
-                niveau_jeu++;
+
+                            break;
+
+                    }
+                    test_balle_perdu();
+                    if (getTab_poing().le_poing_est_parti == false) {
+                        getTab_poing().X_poing = getLechasseur().getX_torse_haut() - 50;
+                        getTab_poing().Y_poing = getLechasseur().getY_torse_haut() - 50;
+                        getLechasseur().setEtat_chasseur((byte) 0);
+                    } else {
+
+                        if (test_etat_balles()) {
+
+                        }
+
+                        getLechasseur().setEtat_chasseur((byte) 1);
+                    }
+
+                    switch (getT() % 4) {
+                        case 0:
+                            gere_balle_dans_la_remorque();
+                            break;
+                        case 1:
+                            gere_score();
+                            break;
+                        case 2:
+                            gere_son();
+                            break;
+                        case 3:
+                            met_a_jour_postion_remorque_pour_les_balles();
+                            break;
+                        case 9:
+                            // canvas = dessine_jeux(canvas);
+                            break;
+                    }
+                    // met_a_jour_postion_remorque_pour_les_balles();
+                    gere_puissance_de_tir(getT());
+                    balle.niveau = getG_niveau().get_niveau();
+                    if (getTab_poing().poing_initialise == false) {
+                        getTab_poing().position_initiale_Y = getPos_Y();
+                        getTab_poing().position_initiale_X = getPos_X();
+                        getTab_poing().poing_initialise = true;
+                    }
+                    setX1((getPos_Z() * 4) + getLargeur_ecran() / 2);//+ (pos_X) / 5;
+
+                    getMcamion().position_x = getX1();
+                    getLechasseur().setPos_chasseur(getMcamion().position_x - 100);
+
+                    getMcamion().calcul_coordonees_remorques();
+                    cx1 = 200 - getPos_Z();
+                    cy1 = 700 + getPos_Y();
+                    dx = 20 + Math.abs((getPos_X()) / 5);
+
+                    setNm_balle_ds_camion(getMcamion().getNombre_de_balle_dans_la_remorque());
+                    if (getMcamion().getNombre_de_balle_dans_la_remorque() >= (getNbre_bal() - 1)) {
+                        niveau_jeu++;
+                        etatJeu = 1;
+                    }
+                    break;
+                case 1://reinitialise balles;
+
+                    for (byte i = 0; i <= getNbre_bal(); i++) {
+
+                         getTab_balle().get(i).tueBalle();
+                        getTab_balle().get(i).thread_lance = false;
+
+
+                    }
+                    setInitialise(false);//on relance le jeu
+
+                    etatJeu = 0;
+                    setT(0);
+                    setNum_ball(getNum_ball() + 2);
+                    break;
             }
         }
 
@@ -1396,7 +1432,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         getmBitmapPaint().setTextSize(40);
 
         canvas.drawText(getChaine(), 50, getPosition_y_score(), getmBitmapPaint());
-        canvas.drawText(""+ getMcamion().getNombre_de_balle_dans_la_remorque(),getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 9, getmBitmapPaint());
+        getmBitmapPaint().setColor(Color.RED);
+        canvas.drawText("" + getMcamion().getNombre_de_balle_dans_la_remorque() + " / " + getNbre_bal() , getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 8, getmBitmapPaint());
         //canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 15, getmBitmapPaint());
 
         if (etatJeuFini == 1) {
