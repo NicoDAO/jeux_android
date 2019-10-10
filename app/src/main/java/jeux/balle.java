@@ -100,6 +100,8 @@ public class balle extends Jeux_generique {
 	private int arrete_thread = 0;
 	public void tueBalle() {
 		arrete_thread = 1;
+        duree_sleep = 0;
+        Thread.currentThread().interrupt();
 	}
 
 	// http://bruce-eckel.developpez.com/livres/java/traduction/tij2/?chap=3&page=0
@@ -389,18 +391,25 @@ public class balle extends Jeux_generique {
 
 		try {
 			// while (etat) {
-			while (!Thread.currentThread().isInterrupted()) {
+			while (!Thread.currentThread().isInterrupted() && (arrete_thread == 0)) {
 				incremente_position();
 				Thread.sleep(duree_sleep);
-				if(arrete_thread ==1)return;
+				//if(arrete_thread ==1)return;
 			}
 		} catch (InterruptedException e) {
-
-			return;
-
+			Thread.currentThread().interrupt();
+			System.out.println(
+					"Thread was interrupted, Failed to complete operation");
 		}
+		System.out.println("le thread est arrete");
+
+
+		return;
 
 	}
+
+
+
 
 
     public void dessine(Canvas canvas) {
