@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
- 	import java.util.Random;
 import java.lang.Math;
 
 import nicolas.console.pr.R;
@@ -524,6 +523,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         for (byte i = 0; i < getNbre_bal(); i++) {
             System.out.println("  configure balle  "  + i + " / " + getNbre_bal());
             getTab_balle().add(new balle(this.getBaseContext()));
+            getTab_balle().get(i).setNiveau(niveau_jeu);
+            getTab_balle().get(i).setNum_balle_lance(i);
             getTab_balle().get(i).initialise_balle();
 
             getTab_balle().get(i).configure_le_camion(getMcamion());
@@ -1222,7 +1223,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                     }
                     // met_a_jour_postion_remorque_pour_les_balles();
                     gere_puissance_de_tir(getT());
-                    balle.niveau = getG_niveau().get_niveau();
+                  //  balle.setNiveau(getG_niveau().get_niveau());
                     if (getTab_poing().poing_initialise == false) {
                         getTab_poing().position_initiale_Y = getPos_Y();
                         getTab_poing().position_initiale_X = getPos_X();
@@ -1256,14 +1257,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
                         getTab_balle().get(i).tueBalle();
                         getTab_balle().get(i).thread_lance = false;
-                       // getTab_balle().get(i).getThreadGroup().destroy();
-                      //  getTab_balle().get(i).destroy();
-                       // getTab_balle().get(i).interrupt();
-                        //  while (!getTab_balle().get(i).isInterrupted()) {
-
                         System.out.println("attente fin thread " + i);
-                        // }
-
                     }
 
                     setNbre_bal(getNbre_bal()+4);
@@ -1275,14 +1269,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             }
         }
 
-        public String getMouch() {
-            return mouch;
-        }
-
-        public void setMouch(String mouch) {
-            this.mouch = mouch;
-        }
-    }
+     }
 
     class UpdateBallTask extends TimerTask {
         @Override
