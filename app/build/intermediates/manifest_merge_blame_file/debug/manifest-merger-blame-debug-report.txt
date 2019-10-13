@@ -38,8 +38,8 @@
 24-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:18:9-26:20
 25            android:name="jeux.Jeux_avion"
 25-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:19:13-43
-26            android:label="@string/app_name" >
-26-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:20:13-45
+26            android:label="attrape les bêtes" >
+26-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:20:13-46
 27            <intent-filter>
 27-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:21:13-25:29
 28                <action android:name="android.intent.action.MAIN" />

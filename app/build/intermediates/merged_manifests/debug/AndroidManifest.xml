@@ -23,7 +23,7 @@
         android:testOnly="true" >
         <activity
             android:name="jeux.Jeux_avion"
-            android:label="@string/app_name" >
+            android:label="attrape les bêtes" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -48,7 +48,7 @@ ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:15
 activity#jeux.Jeux_avion
 ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:18:9-26:20
 	android:label
-		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:20:13-45
+		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:20:13-46
 	android:name
 		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:19:13-43
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
