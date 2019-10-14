@@ -123,6 +123,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     private int limitebasse_partie = 0;// = (hauteur_ecran*0.6);
     private int etatJeuFini = 0;
     private int niveau_jeu = 1;
+    private int niveau_affiche = 1;
 
     /**
      * Called when the activity is first created.
@@ -1273,9 +1274,11 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                         getTab_balle().get(i).thread_lance = false;
                         System.out.println("attente fin thread " + i);
                     }
-
-                    setNbre_bal(getNbre_bal()+2);
-
+                    if(niveau_jeu >4) {//tous les 4 niveaux on augmente le nombre de balles
+                        setNbre_bal(getNbre_bal() + 2);
+                        niveau_jeu = 1;
+                    }
+                    niveau_affiche +=1;
                     System.out.println("on a maintenant " + getNbre_bal() + " balles");
                     break;
                 default:
@@ -1385,6 +1388,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         canvas.drawRect(10, getHauteur_ecran() - 300 - getPuissance_temporaire(), 30, getHauteur_ecran() - 300, paint);
         if (dessine_balles == 1) {
             for (int bb = 0; bb < getNum_ball(); bb++) {
+                getTab_balle().get(bb).setNiveau(niveau_jeu);
                 getTab_balle().get(bb).dessine(canvas);
 
             }
@@ -1437,8 +1441,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         }
         getmBitmapPaint().setColor(Color.YELLOW);
         setChaine(String.format("score %d", getScore()));
-        canvas.drawText("niveau_jeu " + niveau_jeu, getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 10, getmBitmapPaint());
-        getmBitmapPaint().setTextSize(80);
+        canvas.drawText("niveau " + niveau_affiche, getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 10, getmBitmapPaint());
+        getmBitmapPaint().setTextSize(100);
         canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 15, getmBitmapPaint());
 
         getmBitmapPaint().setColor(Color.WHITE);

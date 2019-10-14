@@ -1,4 +1,4 @@
-#Sun Oct 13 17:48:32 CEST 2019
+#Mon Oct 14 23:52:31 CEST 2019
 base.0=/home/nicolas/Android/git/android/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
