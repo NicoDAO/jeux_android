@@ -1,0 +1,4 @@
+package jeux
+
+class lesVies {
+}
