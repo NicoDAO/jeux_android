@@ -3,3 +3,8 @@
 //
 
 #include "CalculEnC.h"
+
+
+ int CalculEnC::calcul_coordonnees(){
+ return 1;
+ }

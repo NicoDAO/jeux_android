@@ -27,30 +27,19 @@ public class chasseur extends Jeux_generique {
     public boolean tourne2 = false;
 
     private int x_patte_1_bas = 30;
-    private int y_patte_1_bas = 600;
+    private int y_bonhomme = 600;
     private int x_patte_1_haut = 60;
     private int y_patte_1_haut = 730;
 
     private int x_patte_2_bas = 90;
-    private int y_patte_2_bas = 600;
-    private int x_patte_2_haut = 120;
-    private int y_patte_2_haut = 730;
+
 
     private int x_torse_bas = 40;
     private int y_torse_bas = 600;
     private int x_torse_haut = 110;
-    private int y_torse_haut = 400;
+    private int y_torse_haut = 500;
 
-    private int X_bras_droite = 80;
-    private int Y_bras_droite = 60;
-    private int largeur_bras_droite = 100;
-    private int hauteur_bras_droite = 100;
 
-    private int X_bras_gauche = 10;
-    private int Y_bras_gauche = 10;
-    private int largeur_bras_gauche = 50;
-    private int hauteur_bras_gauche = 50;
-    private int angle_bras_droite = 0;
     private int pos_chasseur = 0;
     private byte etat_chasseur;
     Drawable[] image_bras_gauche;
@@ -70,41 +59,24 @@ public class chasseur extends Jeux_generique {
         tourne2 = true;
 
         angle2 = -10;
-        image = new Drawable[nbre_membre_chasseur + 1];
-        image_bras_droite = new Drawable[1];
-        image_bras_gauche = new Drawable[1];
+        bonhomme1 = new Drawable[nbre_membre_chasseur + 1];
 
-        image_bras_droite[0] = C.getResources().getDrawable(
-                R.drawable.bras_droite);
-
-        image_bras_gauche[0] = C.getResources().getDrawable(
-                R.drawable.bras_gauche);
-        image[2] = C.getResources().getDrawable(
-                R.drawable.corps);
-        image[3] = C.getResources().getDrawable(
-                R.drawable.tete);
-        image[1] = C.getResources().getDrawable(
-                R.drawable.jambes_droite);
-        image[0] = C.getResources().getDrawable(
-                R.drawable.jambes_gauche);
+        bonhomme1[1] = C.getResources().getDrawable(
+                R.drawable.bonhomme1);
+        bonhomme1[0] = C.getResources().getDrawable(
+                R.drawable.bonhomme2);
     }
 
 
     void intialise_bonhomme() {
         int bas = (int) (getHauteur_de_l_ecran() * 0.8);
-        y_patte_1_bas = bas;
+        y_bonhomme = bas;
         x_patte_1_bas = 30;
         x_patte_1_haut = 60;
         y_patte_1_haut = bas + 130;
 
         x_patte_2_bas = 90;
-        y_patte_2_bas = bas;
-        x_patte_2_haut = 120;
-        y_patte_2_haut = bas + 130;
 
-
-        x_patte_1_bas_init = x_patte_1_bas;
-        x_patte_2_bas_init = y_patte_1_bas;
         x_tete_chasseur = 0;
         y_tete_chasseur = 0;
         x_chasseur_d_avant = 0;
@@ -117,84 +89,14 @@ public class chasseur extends Jeux_generique {
     public void cree_image() {
     }
 
-    public void init_chasseur() {
-    }
 
-    private int x_patte_1_bas_init;
-    private int x_patte_2_bas_init;
+
     private int x_tete_chasseur;
     private int y_tete_chasseur;
     private int x_chasseur_d_avant = 0;
     private int x_chasseur = 0;
     private byte sens1 = 0;
 
-    private void avance_patte_1() {
-
-        switch (etat1) {
-            case 0:
-                num_pas_patte1++;
-                if (x_patte_1_bas < x_chasseur) {
-
-                    sens1 = (-1);
-                } else {
-
-                    sens1 = 1;
-                }
-                angle1 = 0;
-                x_patte_1_bas = x_chasseur - 20;
-                etat1 = 4;
-                break;
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-
-                translate1 = true;
-                tourne1 = true;
-
-                if (sens1 == (-1))
-                    angle1 -= 2;
-                if (sens1 == 1)
-                    angle1 += 2;
-
-                etat1++;
-
-                break;
-
-            case 5:
-                etat1 = 0;
-
-                break;
-
-        }
-
-    }
-
-
-    private void avance_patte_2() {
-        switch (etat2) {
-            case 0:
-            case 1:
-            case 2:
-            case 3:
-            case 4:
-                etat2++;
-                break;
-
-            case 5:
-                x_patte_2_haut = x_patte_1_haut + 50;
-                x_patte_2_bas = x_patte_1_bas + 50;
-                y_patte_2_haut = y_patte_1_haut;
-                y_patte_2_bas = y_patte_1_bas;
-                etat2 = 0;
-
-                break;
-
-        }
-
-    }
-
-    private int offset_tete = 50;
 
     public void init_pos_chasseur() {
         sens = 1;
@@ -203,22 +105,6 @@ public class chasseur extends Jeux_generique {
 
     }
 
-    private byte sens_offset = 0;
-    private int offset = 0;
-
-    private int calcul_offset_tete() {
-
-        switch (sens_offset) {
-            case 0:
-                if (offset++ > 80) sens_offset = 1;
-                break;
-            case 1:
-                if (offset-- < 60) sens_offset = 0;
-                break;
-        }
-
-        return offset;
-    }
 
     private void avance_chasseur() {
         if (getPos_chasseur() > x_chasseur) {
@@ -226,31 +112,13 @@ public class chasseur extends Jeux_generique {
 
         } else
             x_chasseur -= 10;
-        y_tete_chasseur = y_torse_bas - calcul_offset_tete();
-        avance_patte_1();
-        avance_patte_2();
+
         avance_torse();
-        avance_bras();
+
 
     }
 
-    private void avance_bras() {
-        X_bras_droite = x_chasseur + 20;
-        X_bras_gauche = x_chasseur - 70;
-        hauteur_bras_droite = 100;
-        hauteur_bras_gauche = 100;
-        largeur_bras_droite = 100;
-        largeur_bras_gauche = 100;
 
-        Y_bras_droite = y_torse_bas;
-        Y_bras_gauche = y_torse_bas;
-        if (getEtat_chasseur() == 1) {
-            angle_bras_droite = (-40);
-        } else {
-            angle_bras_droite = 0;
-        }
-
-    }
 
     private void avance_torse() {
 
@@ -262,7 +130,7 @@ public class chasseur extends Jeux_generique {
                 affiche_torse = true;
                 x_torse_bas = x_chasseur - 20;
                 setX_torse_haut(x_chasseur + 80); // + 30;//x_patte_1_haut;
-                setY_torse_haut(y_patte_1_bas + 40);
+                setY_torse_haut(y_bonhomme + 40);
                 y_torse_bas = getY_torse_haut() - 100;
                 x_tete_chasseur = x_chasseur - 20;
 
@@ -280,7 +148,7 @@ public class chasseur extends Jeux_generique {
                 affiche_torse = true;
                 x_torse_bas = x_patte_1_bas - 20;
                 setX_torse_haut(x_patte_2_bas + 80); // + 30;//x_patte_1_haut;
-                setY_torse_haut(y_patte_1_bas + 40);
+                setY_torse_haut(y_bonhomme + 40);
                 y_torse_bas = getY_torse_haut() - 100;
 
                 etat_torse = 5;
@@ -296,51 +164,31 @@ public class chasseur extends Jeux_generique {
 
     @Override
     public void dessine_jeux(Canvas canvas) {
-        canvas.rotate(angle_bras_droite, X_bras_droite,
-                Y_bras_droite);
-        image_bras_droite[0].setBounds(X_bras_droite,
-                Y_bras_droite, X_bras_droite
-                        + largeur_bras_droite,
-                Y_bras_droite + hauteur_bras_droite);
-        image_bras_droite[0].draw(canvas);
-        canvas.restore();
-       /* x_patte_2_haut = x_patte_1_haut + 50;
-        x_patte_2_bas = x_patte_1_bas + 50;
-        y_patte_2_haut = y_patte_1_haut;
-        y_patte_2_bas = y_patte_1_bas;*/
-        image_bras_gauche[0].setBounds(X_bras_gauche,
-                Y_bras_gauche, X_bras_gauche
-                        + largeur_bras_gauche,
-                Y_bras_gauche + hauteur_bras_gauche);
-        image_bras_gauche[0].draw(canvas);
-        if (tourne1) {
-            canvas.save();
-            image[0].setBounds(x_patte_1_bas,
-                    y_patte_1_bas, x_patte_1_bas + 40,
-                    y_patte_1_haut);
-            image[0].draw(canvas);
-            canvas.restore();
-        }
-        if (tourne2) {
-            canvas.save();
-            image[1].setBounds(x_patte_2_bas,
-                    y_patte_2_bas, x_patte_2_bas + 40,
-                    y_patte_2_haut);
-            image[1].draw(canvas);
-            canvas.restore();
-        }
-        image[2].setBounds(x_torse_bas,
-                y_torse_bas, getX_torse_haut(),
-                getY_torse_haut());
 
-        image[2].draw(canvas);
-        image[3].setBounds(x_tete_chasseur,
-                y_tete_chasseur, x_tete_chasseur + 100,
-                y_tete_chasseur + 100);
-        image[3].draw(canvas);
+        canvas.save();
+        if(select_image_bonhome == 0){
+            bonhomme1[0].setVisible(true,false);
+            bonhomme1[1].setVisible(false,false);
+            bonhomme1[0].setBounds(x_torse_bas,
+                    y_torse_bas, x_torse_bas + 240,
+                    y_torse_haut);
+            bonhomme1[0].draw(canvas);
+        }
+        if(select_image_bonhome == 1){
+            bonhomme1[1].setVisible(true,false);
+            bonhomme1[0].setVisible(false,false);
+            bonhomme1[1].setBounds(x_torse_bas,
+                    y_torse_bas, x_torse_bas + 240,
+                    y_torse_haut);
+            bonhomme1[1].draw(canvas);
+        }
+
+        canvas.restore();
+
 
     }
-
+    int select_image_bonhome = 0;
+    int cpt = 0;
     @Override
     public void run() {
 
@@ -349,11 +197,15 @@ public class chasseur extends Jeux_generique {
             while (!Thread.currentThread().isInterrupted()) {
                 // incremente_position();
                 // Thread.sleep(vitesse_au_pic);
+                if(( cpt  % 10)== 1)select_image_bonhome = 0;
+                if(( cpt  % 20) == 1)select_image_bonhome = 1;
+                cpt++;
                 if (avance_le_chasseur) {
                     avance_chasseur();
 
+
                 }
-                Thread.sleep(100);
+                Thread.sleep(33);
             }
         } catch (InterruptedException e) {
             return;

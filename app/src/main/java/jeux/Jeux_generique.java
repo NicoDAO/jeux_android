@@ -20,11 +20,11 @@ public class Jeux_generique extends Thread {
     public int position_y;
     public int largeur = 100;
     public int angle;
-    public Drawable[] image;
+    public Drawable[] bonhomme1;
     int position_z;
     Context context;
     public Jeux_generique(){
-        image  = new Drawable[1];
+        bonhomme1 = new Drawable[1];
     }
     public int getPositionXintiiale() {
         return positionXintiiale;
@@ -80,11 +80,11 @@ public class Jeux_generique extends Thread {
 
         canvas.save();
         canvas.rotate(angle, position_x, position_y);
-        image[0].setBounds(position_x, position_y, position_x
+        bonhomme1[0].setBounds(position_x, position_y, position_x
                 + largeur, position_y + largeur);
 
         canvas.restore();
-        image[0].draw(canvas);
+        bonhomme1[0].draw(canvas);
         //return canvas;
     }
     private int x_score;

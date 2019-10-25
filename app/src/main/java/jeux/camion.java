@@ -10,8 +10,8 @@ public class camion extends Jeux_generique{
 	final static int nombre_de_balles_max_ds_remorque = 30;
 
 	public camion(Context C) {
-        image[0] = C.getResources().getDrawable(
-                R.drawable.chariot);
+        bonhomme1[0] = C.getResources().getDrawable(
+                R.drawable.camion);
 	}
 
 	public void initialise_camion() {

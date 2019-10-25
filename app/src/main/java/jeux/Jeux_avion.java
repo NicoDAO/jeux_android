@@ -33,6 +33,8 @@ import android.graphics.drawable.Drawable;
 
 import audio.jouer_son;
 
+
+
 public class Jeux_avion extends Activity implements OnTouchListener {
     private int nbre_bal = 4;
     private static final int nbre_nuage = 5;
@@ -174,7 +176,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
+        gestionVies titi = new gestionVies();
+        titi.getAffiche_nuage();
         final float scale = getResources().getDisplayMetrics().density;
         setLargeur_ecran(getResources().getDisplayMetrics().widthPixels);
         setHauteur_ecran(getResources().getDisplayMetrics().heightPixels);
@@ -345,17 +348,6 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                 tab_balle.statut_balle = 1;
             }
         }
-
-/*
-        if (getTab_balle().get(num_babale).thread_lance == false) {
-            getTab_balle().get(num_babale).setLimite_Basse(limitebasse_partie);
-            getTab_balle().get(num_babale).start();
-            getTab_balle().get(num_babale).incremente_num_balle();
-            getTab_balle().get(num_babale).thread_lance = true;
-            getTab_balle().get(num_babale).balle_affichee = true;
-            getTab_balle().get(num_babale).statut_balle = 1;
-
-        }*/
         num_balle_a_lancer++;
     }
 
@@ -424,7 +416,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                         setForce_de_tir((getTemps_fin() - getTemps_debut()) * 5);
                         setY_viseur(600 - getForce_de_tir());
                         setPuissance_state((byte) 0);
-//ici
+
                         if (test_si_poing_en_bas() == 1) {
                             getTab_poing().lance_le_poing_vers_cible(getX1(), getY_viseur());
                         }
@@ -483,7 +475,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         setImage_gameOver(new Drawable[1]);
         setImage_nuage(new Drawable[getNbre_nuage() + 1]);
         getImage_poing()[1] = getBaseContext().getResources().getDrawable(
-                R.drawable.poingxcf);
+                R.drawable.balle);
         getImage_gameOver()[0] = getBaseContext().getResources().getDrawable(
                 R.drawable.game_over);
 
@@ -1381,7 +1373,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         getmBitmapPaint().setTextSize(40);
         getmBackgroundImage().draw(canvas);
         Paint paint = new Paint();
-        paint.setColor(Color.DKGRAY);
+        paint.setColor(Color.WHITE);
         canvas.drawRect(10, limitebasse_partie, getLargeur_ecran(), getHauteur_ecran(), paint);
 
         paint.setColor(Color.RED);
@@ -1405,10 +1397,10 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         canvas.save();
         getLechasseur().dessine_jeux(canvas);
 
-        getMcamion().image[0].setBounds(getMcamion().position_x,
+        getMcamion().bonhomme1[0].setBounds(getMcamion().position_x,
                 getMcamion().getPosition_y(), getMcamion().position_remorque_B,
                 getMcamion().getPosition_y() + 150);
-        getMcamion().image[0].draw(canvas);
+        getMcamion().bonhomme1[0].draw(canvas);
 
         for (byte num_nuage = 0; num_nuage < getNbre_nuage(); num_nuage++) {
 

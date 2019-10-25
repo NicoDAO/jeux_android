@@ -8,6 +8,7 @@
 
 
 class CalculEnC {
+public : int calcul_coordonnees(void);
 
 };
 

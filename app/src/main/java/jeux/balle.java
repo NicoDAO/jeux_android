@@ -153,12 +153,12 @@ public class balle extends Jeux_generique {
         avion_vert = false;
         largeur = 100;
         if (quel_avion < 3) {
-            image[0] = context.getResources().getDrawable(
+            bonhomme1[0] = context.getResources().getDrawable(
                     R.drawable.soucoupe_vert);
             avion_vert = true;
         } else {
 
-            image[0] = context.getResources().getDrawable(
+            bonhomme1[0] = context.getResources().getDrawable(
                     R.drawable.ship);
 
         }
@@ -464,7 +464,7 @@ public class balle extends Jeux_generique {
             canvas.rotate(angle,
                     position_x,
                     position_y);
-            image[0].setBounds(position_x,
+            bonhomme1[0].setBounds(position_x,
                     position_y,
                     position_x
                             + largeur,
@@ -472,7 +472,7 @@ public class balle extends Jeux_generique {
                             + largeur);
 
 
-            image[0].draw(canvas);
+            bonhomme1[0].draw(canvas);
             canvas.restore();
         }
 
