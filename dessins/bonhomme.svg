@@ -16,7 +16,7 @@
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="bonhomme.svg"
-   inkscape:export-filename="/home/nicolas/Android/git/android/dessins/bonhomme.svg.png"
+   inkscape:export-filename="/home/nicolas/Android/git/android/dessins/bonhomme1.svg.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -36,9 +36,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.59152637"
-     inkscape:cx="21.550138"
-     inkscape:cy="388.55893"
+     inkscape:zoom="1.1605692"
+     inkscape:cx="334.14281"
+     inkscape:cy="539.64777"
      inkscape:document-units="mm"
      inkscape:current-layer="layer6"
      showgrid="false"
@@ -55,7 +55,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -65,22 +65,15 @@
      inkscape:label="bras 1"
      style="display:inline">
     <ellipse
-       style="fill:#4d4d4d;stroke-width:0.26458332"
-       id="path3895"
-       cx="146.26355"
-       cy="160.35315"
-       rx="1.3418674"
-       ry="1.1182228" />
-    <ellipse
        style="fill:#4d4d4d;stroke-width:0.34250879"
        id="path3897"
-       cx="175.7966"
-       cy="-215.75635"
+       cx="233.98976"
+       cy="-124.28764"
        rx="33.270058"
        ry="9.8756971"
-       transform="matrix(0.93815666,-0.34621104,0.1331373,-0.9910976,0,0)"
-       inkscape:transform-center-x="0.44728394"
-       inkscape:transform-center-y="-4.8946433" />
+       transform="matrix(0.96203749,0.27291734,0.691445,-0.72242911,0,0)"
+       inkscape:transform-center-x="-2.5220353"
+       inkscape:transform-center-y="-4.2186429" />
     <ellipse
        style="fill:#4d4d4d;stroke-width:0.2709237"
        id="path3899"
@@ -91,9 +84,33 @@
        transform="matrix(0.96762932,0.25237572,-0.73466199,0.67843331,0,0)" />
   </g>
   <g
+     style="display:none"
+     inkscape:label="bras2"
+     id="g40"
+     inkscape:groupmode="layer">
+    <ellipse
+       inkscape:transform-center-y="-4.8946433"
+       inkscape:transform-center-x="0.44728394"
+       transform="matrix(0.93815666,-0.34621104,0.1331373,-0.9910976,0,0)"
+       ry="9.8756971"
+       rx="33.270058"
+       cy="-215.75635"
+       cx="175.7966"
+       id="ellipse36"
+       style="fill:#4d4d4d;stroke-width:0.34250879" />
+    <ellipse
+       transform="matrix(0.96762932,0.25237572,-0.73466199,0.67843331,0,0)"
+       ry="11.867338"
+       rx="21.834709"
+       cy="155.31734"
+       cx="187.72316"
+       id="ellipse38"
+       style="fill:#4d4d4d;stroke-width:0.2709237" />
+  </g>
+  <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="jambes"
+     inkscape:label="jambes1"
      style="display:inline"
      sodipodi:insensitive="true">
     <ellipse
@@ -112,13 +129,32 @@
        ry="18.5625" />
   </g>
   <g
+     style="display:none"
+     inkscape:label="jambes2"
+     id="g34"
+     inkscape:groupmode="layer">
+    <ellipse
+       ry="14.313253"
+       rx="28.402861"
+       cy="204.55247"
+       cx="147.38902"
+       id="ellipse30"
+       style="fill:#4d4d4d;stroke-width:0.29312962" />
+    <ellipse
+       ry="18.5625"
+       rx="29.968372"
+       cy="205.87268"
+       cx="68.214676"
+       id="ellipse32"
+       style="fill:#4d4d4d;stroke-width:0.33822674" />
+  </g>
+  <g
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="corps"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <ellipse
-       style="fill:#550000;stroke-width:0.31052217"
+       style="fill:#d4aa00;stroke-width:0.31052217"
        id="path3804"
        cx="102.8765"
        cy="171.53537"
@@ -164,6 +200,6 @@
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="bras"
-     style="display:inline"
+     style="display:none"
      sodipodi:insensitive="true" />
 </svg>

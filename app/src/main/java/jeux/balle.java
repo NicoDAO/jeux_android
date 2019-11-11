@@ -18,11 +18,10 @@ public class balle extends Jeux_generique {
 
     public boolean thread_lance = false;
 
-    //public int position_x = 0;
+    //public int position_x_camion = 0;
     //public int position_y;
     public boolean balle_affichee;
-    public boolean balle_attrapee = false;
-    public boolean balle_echappee = false;
+
     public boolean balle_echappee_info = false;
     public boolean balle_dans_camion_info = false;
 
@@ -35,13 +34,12 @@ public class balle extends Jeux_generique {
     public boolean son2_a_relancer = false;
     public boolean son3_a_relancer = false;
 
-    public int compteur_clignote;
     private int quel_avion = 0;
     public boolean avion_vert;
     public boolean mutex_son = false;
 
     public static int coordonnees_remorques_X;
-    public static int coordonnees_remorques_Y;
+
     public boolean balle_dans_la_remorque = false;
     public boolean balle_dans_le_camion_etat_avant = false;
     public int statut_balle = 0;
@@ -173,7 +171,7 @@ public class balle extends Jeux_generique {
 
         // int vitesse_cible = 1;
         int vitesse_c = 0;
-        int index = 0;
+        int index;
         index = ((position_x * 10) / largeur_ecran);
         if (index < 11)
             vitesse_c = carto_vitesse_nrmalle[index];
@@ -202,11 +200,11 @@ public class balle extends Jeux_generique {
 
                 balle_dans_le_camion_etat_avant = false;
                 // if ((getNum_balle_lance() >= 1)) {
-                position_x = position_balle_depart_X[getNiveau() - 1][getNum_balle_lance() - 1] * largeur_ecran / 100;
+                position_x_camion = position_balle_depart_X[getNiveau() - 1][getNum_balle_lance() - 1] * largeur_ecran / 100;
                 position_y = position_balle_depart_Y[getNiveau() - 1][getNum_balle_lance() - 1] * hauteur_ecran / 100;
                 vitesse = sens_balle[getNiveau() - 1][getNum_balle_lance() - 1];
 
-                //System.out.println("init balle " + getNum_balle_lance() + "X :" + position_x + " Y  : " + position_y + "  +  " + vitesse);
+                //System.out.println("init balle " + getNum_balle_lance() + "X :" + position_x_camion + " Y  : " + position_y + "  +  " + vitesse);
                 //}
                 // position_y = 10;
                 largeur = 100;
@@ -228,50 +226,50 @@ public class balle extends Jeux_generique {
                 break;
             case balle_en_l_air:
                 angle = 0;
-                duree_sleep = (50 - calcul_vitesse_balle_en_l_air(position_x, sens)) / 2;
+                duree_sleep = (50 - calcul_vitesse_balle_en_l_air(position_x_camion, sens)) / 2;
 
                 //vitesse = 2;
                 if (sens) {
-                    position_x += vitesse;// vitesse;
-                    if (position_x < 10) {
+                    position_x_camion += vitesse;// vitesse;
+                    if (position_x_camion < 10) {
 
                         position_y += 5;
 
-                    } else if (position_x < 30) {
+                    } else if (position_x_camion < 30) {
 
                         position_y += 3;
 
-                    } else if (position_x > (coordonnees_X_de_retour)) {
+                    } else if (position_x_camion > (coordonnees_X_de_retour)) {
 
                         sens = false;
 
-                    } else if (position_x > (coordonnees_X_de_retour - 10)) {
+                    } else if (position_x_camion > (coordonnees_X_de_retour - 10)) {
 
                         position_y += 4;
 
-                    } else if (position_x > (coordonnees_X_de_retour - 30)) {
+                    } else if (position_x_camion > (coordonnees_X_de_retour - 30)) {
 
                         position_y += 2;
 
                     }
                 } else {
-                    position_x -= vitesse;
-                    if (position_x > (coordonnees_X_de_retour - 10)) {
+                    position_x_camion -= vitesse;
+                    if (position_x_camion > (coordonnees_X_de_retour - 10)) {
 
                         position_y += 4;
 
-                    } else if (position_x > (coordonnees_X_de_retour - 30)) {
+                    } else if (position_x_camion > (coordonnees_X_de_retour - 30)) {
 
                         position_y += 2;
 
-                    } else if (position_x < 0) {
+                    } else if (position_x_camion < 0) {
                         sens = true;
 
-                    } else if (position_x < 10) {
+                    } else if (position_x_camion < 10) {
 
                         position_y += 4;
 
-                    } else if (position_x < 30) {
+                    } else if (position_x_camion < 30) {
 
                         position_y += 2;
 
@@ -283,7 +281,7 @@ public class balle extends Jeux_generique {
             case balle_est_attrapee:
                 position_Y_avant_depart = position_y;
                 statut_balle = balle_tombe;
-                setX_score(position_x);
+                setX_score(position_x_camion);
                 setY_score(position_y);
                 setScore_a_afficher(true);
                 duree_vie_score = 100;
@@ -292,9 +290,9 @@ public class balle extends Jeux_generique {
                 vitesse = calcul_vitesse_chute_balle(position_y);
                 //System.out.println("balle tombe y =" +position_y + " remorque :" + hauteur_ecran );
                 if (sens)
-                    position_x++;
+                    position_x_camion++;
                 if (!sens)
-                    position_x--;
+                    position_x_camion--;
                 duree_sleep = 50 / vitesse;
                 position_y += vitesse;
                 Random randomGenerator1 = new Random();
@@ -314,9 +312,9 @@ public class balle extends Jeux_generique {
                     if (largeur < 100)
                         largeur++;
                 }
-                //System.out.println("balle_dans_le_camion =" +this.le_cam.position_x + "  :" + position_y );
+                //System.out.println("balle_dans_le_camion =" +this.le_cam.position_x_camion + "  :" + position_y );
 
-                position_x = this.le_cam.position_x + pos_au_pif_dans_camion_X;
+                position_x_camion = this.le_cam.position_x_camion + pos_au_pif_dans_camion_X;
                 position_y = this.le_cam.position_y + pos_au_pif_dans_camion_Y;
                 if (compteur_reaparition++ > compteur_au_pif) {
                     statut_balle = balle_est_echappee;
@@ -325,7 +323,7 @@ public class balle extends Jeux_generique {
                 }
 
                 vitesse++;
-                position_X_avant_depart = position_x;
+                position_X_avant_depart = position_x_camion;
                 position_Y_avant_depart = position_y;
                 if (vitesse > 8)
                     vitesse = 2;
@@ -337,7 +335,7 @@ public class balle extends Jeux_generique {
                 calcul_position_saut();
 
                 balle_dans_la_remorque = false;
-                if (position_x <= 0) {
+                if (position_x_camion <= 0) {
                     son3_a_relancer = true;
                     position_y = 10;
                     statut_balle = getInit_la_balle();
@@ -397,7 +395,7 @@ public class balle extends Jeux_generique {
 
     private int calcul_vitesse_chute_balle(int position_y_C) {
         int index = 0;
-        int vitesse_chute = 1;
+        int vitesse_chute;
         index = (position_Y_avant_depart * 10) / position_y_C;
         vitesse_chute = carto_vitesse_chute[index];
         return vitesse_chute;
@@ -411,18 +409,18 @@ public class balle extends Jeux_generique {
 
         position_medianne_X = position_X_avant_depart / 2;
 
-        coef_pos = (position_x * 10) / position_X_avant_depart;
+        coef_pos = (position_x_camion * 10) / position_X_avant_depart;
 
         if ((coef_pos < 11) && (coef_pos >= 0))
             vitesse_Y = carto_vitesse[coef_pos];
         vitesse = (char) vitesse_Y;
         duree_sleep = 50 / vitesse;
-        if (position_x > position_medianne_X)
+        if (position_x_camion > position_medianne_X)
             position_y -= vitesse_Y;
-        if (position_x < position_medianne_X)
+        if (position_x_camion < position_medianne_X)
             position_y += vitesse_Y;
         angle++;
-        position_x--;
+        position_x_camion--;
 
     }
 
@@ -462,11 +460,11 @@ public class balle extends Jeux_generique {
         if (balle_affichee == true) {
             canvas.save();
             canvas.rotate(angle,
-                    position_x,
+                    position_x_camion,
                     position_y);
-            bonhomme1[0].setBounds(position_x,
+            bonhomme1[0].setBounds(position_x_camion,
                     position_y,
-                    position_x
+                    position_x_camion
                             + largeur,
                     position_y
                             + largeur);

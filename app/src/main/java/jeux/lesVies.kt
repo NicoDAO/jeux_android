@@ -1,6 +1,4 @@
 package jeux
 
-class lesVies {
-
-}
+class lesVies
 

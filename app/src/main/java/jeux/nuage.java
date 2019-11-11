@@ -19,13 +19,13 @@ public class nuage extends Jeux_generique{
 		vitesse_au_pic = randomGenerator.nextInt(200);
 
 		position_y = randomGenerator.nextInt(200);
-		position_x =randomGenerator.nextInt(500);
+		position_x_camion =randomGenerator.nextInt(500);
 	}
 
 	public void incremente_position() {
-		position_x += 1;//vitesse_au_pic;
-		if (position_x > 700) {
-			position_x = -300;
+		position_x_camion += 1;//vitesse_au_pic;
+		if (position_x_camion > 700) {
+			position_x_camion = -300;
 			Random randomGenerator = new Random();
 			vitesse_au_pic = (randomGenerator.nextInt(6) +1) *100;
 

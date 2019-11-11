@@ -11,25 +11,18 @@ public class chasseur extends Jeux_generique {
 
     // int position_x_camion;
     public int position_y_camion;
-    private int etat1 = 0;
-    private int etat2 = 0;
+
     private int etat_torse = 0;
     public boolean thread_lance = false;
     public boolean avance_le_chasseur = false;
 
-    public int angle1 = 0;
-    public boolean translate1 = false;
-    public boolean tourne1 = false;
-    private byte num_pas_patte1 = 0;
-    private byte num_pas_patte2 = 0;
     public int angle2 = 0;
     public boolean translate2 = false;
     public boolean tourne2 = false;
 
     private int x_patte_1_bas = 30;
     private int y_bonhomme = 600;
-    private int x_patte_1_haut = 60;
-    private int y_patte_1_haut = 730;
+
 
     private int x_patte_2_bas = 90;
 
@@ -41,19 +34,13 @@ public class chasseur extends Jeux_generique {
 
 
     private int pos_chasseur = 0;
-    private byte etat_chasseur;
-    Drawable[] image_bras_gauche;
-    Drawable[] image_bras_droite;
+
     public boolean affiche_torse = false;
-    private byte sens = 1;
     static final int nbre_membre_chasseur = 7;
 
     public chasseur(Context C) {
         this.context = C;
-        translate1 = true;
-        tourne1 = true;
 
-        angle1 = 10;
 
         translate2 = true;
         tourne2 = true;
@@ -68,38 +55,17 @@ public class chasseur extends Jeux_generique {
     }
 
 
-    void intialise_bonhomme() {
+    private void intialise_bonhomme() {
         int bas = (int) (getHauteur_de_l_ecran() * 0.8);
         y_bonhomme = bas;
-        x_patte_1_bas = 30;
-        x_patte_1_haut = 60;
-        y_patte_1_haut = bas + 130;
 
-        x_patte_2_bas = 90;
-
-        x_tete_chasseur = 0;
-        y_tete_chasseur = 0;
-        x_chasseur_d_avant = 0;
-        x_chasseur = 0;
 
     }
 
-    public int bound_x1, y1, x2, y2 = 0;
-
-    public void cree_image() {
-    }
-
-
-
-    private int x_tete_chasseur;
-    private int y_tete_chasseur;
-    private int x_chasseur_d_avant = 0;
     private int x_chasseur = 0;
-    private byte sens1 = 0;
-
 
     public void init_pos_chasseur() {
-        sens = 1;
+
 
         intialise_bonhomme();
 
@@ -132,8 +98,6 @@ public class chasseur extends Jeux_generique {
                 setX_torse_haut(x_chasseur + 80); // + 30;//x_patte_1_haut;
                 setY_torse_haut(y_bonhomme + 40);
                 y_torse_bas = getY_torse_haut() - 100;
-                x_tete_chasseur = x_chasseur - 20;
-
                 etat_torse = 0;
                 break;
             case 2:
@@ -222,13 +186,7 @@ public class chasseur extends Jeux_generique {
         this.pos_chasseur = pos_chasseur;
     }
 
-    public byte getEtat_chasseur() {
-        return etat_chasseur;
-    }
 
-    public void setEtat_chasseur(byte etat_chasseur) {
-        this.etat_chasseur = etat_chasseur;
-    }
 
     public int getX_torse_haut() {
         return x_torse_haut;

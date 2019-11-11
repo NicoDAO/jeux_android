@@ -5,9 +5,9 @@ class gestion_niveauxTest extends gestion_niveaux {
         //get_niveau tt = new gestion_niveaux();
        // tt._niveau = 1;
         //tt.increment_niveau() ;
-        _niveau = 0;
-        testIncrement_niveau();
-        assertEquals(tt._niveau,3);
+        _niveau = 0
+        testIncrement_niveau()
+        assertEquals(tt._niveau,3)
     }
 
     void testIncrement_niveau() {

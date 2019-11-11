@@ -21,7 +21,6 @@ public class poing extends Jeux_generique {
     public int offset_position_initiale = 0;
     public int X_poing;
     public int Y_poing;
-    private int x_cible;
     private int y_cible;
     private byte etat_lance_le_poing = 0;
     private int duree_sleep = 200;
@@ -31,7 +30,6 @@ public class poing extends Jeux_generique {
 
     public void lance_le_poing_vers_cible(int x, int y) {
 
-        x_cible = x;
         y_cible = y;
         if (etat_lance_le_poing == 0) {
             position_initiale_X = X_poing;

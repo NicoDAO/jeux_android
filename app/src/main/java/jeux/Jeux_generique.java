@@ -16,7 +16,7 @@ public class Jeux_generique extends Thread {
     private int positionXintiiale;
     private int positionXintiale;
     private int positionZintiale;
-    public int position_x;
+    public int position_x_camion;
     public int position_y;
     public int largeur = 100;
     public int angle;
@@ -79,8 +79,8 @@ public class Jeux_generique extends Thread {
         paint.setColor(Color.RED);
 
         canvas.save();
-        canvas.rotate(angle, position_x, position_y);
-        bonhomme1[0].setBounds(position_x, position_y, position_x
+        canvas.rotate(angle, position_x_camion, position_y);
+        bonhomme1[0].setBounds(position_x_camion, position_y, position_x_camion
                 + largeur, position_y + largeur);
 
         canvas.restore();

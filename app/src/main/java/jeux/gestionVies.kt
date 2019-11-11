@@ -7,7 +7,7 @@ class gestionVies {
     private var vitesse_au_pic = 0
     var dessus_dessous = 0
     var thread_lance = false
-    public var position_y = 0
+    var position_y = 0
     private val position_x = 0
     fun init_nuage() {
         val randomGenerator = Random()

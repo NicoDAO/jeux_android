@@ -34,7 +34,6 @@ import android.graphics.drawable.Drawable;
 import audio.jouer_son;
 
 
-
 public class Jeux_avion extends Activity implements OnTouchListener {
     private int nbre_bal = 4;
     private static final int nbre_nuage = 5;
@@ -76,7 +75,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     private boolean basc;
     private String chaine = "coucou";
     private int t;
-    private List<balle> tab_balle = new ArrayList();
+    private List <balle> tab_balle = new ArrayList();
     private int scoreGeneral = 0;
 
     //balle[] tab_balle;
@@ -84,7 +83,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     private gestion_niveaux g_niveau;
     //gestion_appli g_gestion_appli;
     //nuage[] tab_nuages;
-    private List<nuage> tab_nuages = new ArrayList();
+    private List <nuage> tab_nuages = new ArrayList();
     private affiche_score[] tab_score;
 
     private jouer_son mjouer_son;
@@ -213,11 +212,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
         }
 
-        if (getTab_balle().get(getNum_ball_ds_remorque()).balle_echappee_info == true) {
-            getTab_balle().get(getNum_ball_ds_remorque()).balle_echappee_info = false;
-            getMcamion().decremente_balle_dans_cammion(getNum_ball_ds_remorque());
-
-        }
+      
 
         if (getTab_balle().get(getNum_ball_ds_remorque()).statut_balle == balle.balle_dans_le_camion) {
             getMcamion().calcul_coordonees_dela_balle_dans_la_remorque(getNum_ball_ds_remorque());
@@ -242,8 +237,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             switch (statut_temp) {
                 case balle.balle_en_l_air:
 
-                    if ((getTab_balle().get(num_ball).position_x > (getTab_poing().X_poing - 50))
-                            && (getTab_balle().get(num_ball).position_x < (getTab_poing().X_poing + 50))
+                    if ((getTab_balle().get(num_ball).position_x_camion > (getTab_poing().X_poing - 50))
+                            && (getTab_balle().get(num_ball).position_x_camion < (getTab_poing().X_poing + 50))
                             && (getTab_balle().get(num_ball).position_y > (getTab_poing().Y_poing - 50))
                             && (getTab_balle().get(num_ball).position_y < (getTab_poing().Y_poing + 50))) {
 
@@ -293,7 +288,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         return balle_attrapee;
     }
 
-    private boolean test_balle_perdu() {
+    private void test_balle_perdu() {
         boolean balle_attrapee = false;
 
         for (int num_balle = 0; num_balle < getNbre_bal(); num_balle++) {
@@ -315,7 +310,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             }
 
         }
-        return balle_attrapee;
+
     }
 
 
@@ -339,7 +334,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         System.out.println("demarre la balle " + num_balle_a_lancer);
 
         for (balle tab_balle : tab_balle) {
-             if (tab_balle.thread_lance == false) {
+            if (tab_balle.thread_lance == false) {
                 tab_balle.setLimite_Basse(limitebasse_partie);
                 tab_balle.start();
                 tab_balle.incremente_num_balle();
@@ -838,11 +833,11 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         this.t = t;
     }
 
-    public List<balle> getTab_balle() {
+    public List <balle> getTab_balle() {
         return tab_balle;
     }
 
-    public void setTab_balle(List<balle> tab_balle) {
+    public void setTab_balle(List <balle> tab_balle) {
         this.tab_balle = tab_balle;
     }
 
@@ -869,11 +864,11 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         this.g_niveau = g_niveau;
     }
 
-    public List<nuage> getTab_nuages() {
+    public List <nuage> getTab_nuages() {
         return tab_nuages;
     }
 
-    public void setTab_nuages(List<nuage> tab_nuages) {
+    public void setTab_nuages(List <nuage> tab_nuages) {
         this.tab_nuages = tab_nuages;
     }
 
@@ -1201,14 +1196,10 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                     if (getTab_poing().le_poing_est_parti == false) {
                         getTab_poing().X_poing = getLechasseur().getX_torse_haut() - 50;
                         getTab_poing().Y_poing = getLechasseur().getY_torse_haut() - 50;
-                        getLechasseur().setEtat_chasseur((byte) 0);
-                    } else {
+                     } else {
 
-                        if (test_etat_balles()) {
+                        test_etat_balles();
 
-                        }
-
-                        getLechasseur().setEtat_chasseur((byte) 1);
                     }
 
                     switch (getT() % 4) {
@@ -1224,9 +1215,6 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                         case 3:
                             met_a_jour_postion_remorque_pour_les_balles();
                             break;
-                        case 9:
-                            // canvas = dessine_jeux(canvas);
-                            break;
                     }
                     // met_a_jour_postion_remorque_pour_les_balles();
                     gere_puissance_de_tir(getT());
@@ -1238,8 +1226,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                     }
                     setX1((getPos_Z() * 4) + getLargeur_ecran() / 2);//+ (pos_X) / 5;
 
-                    getMcamion().position_x = getX1();
-                    getLechasseur().setPos_chasseur(getMcamion().position_x - 100);
+                    getMcamion().position_x_camion = getX1();
+                    getLechasseur().setPos_chasseur(getMcamion().position_x_camion - 100);
 
                     getMcamion().calcul_coordonees_remorques();
                     cx1 = 200 - getPos_Z();
@@ -1248,6 +1236,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
                     setNm_balle_ds_camion(getMcamion().getNombre_de_balle_dans_la_remorque());
                     if (getMcamion().getNombre_de_balle_dans_la_remorque() >= (getNbre_bal())) {
+                        getMcamion().initialise_camion();
                         niveau_jeu++;
                         etatJeu = 1;
                     }
@@ -1266,11 +1255,11 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                         getTab_balle().get(i).thread_lance = false;
                         System.out.println("attente fin thread " + i);
                     }
-                    if(niveau_jeu >4) {//tous les 4 niveaux on augmente le nombre de balles
+                    if (niveau_jeu > 4) {//tous les 4 niveaux on augmente le nombre de balles
                         setNbre_bal(getNbre_bal() + 2);
                         niveau_jeu = 1;
                     }
-                    niveau_affiche +=1;
+                    niveau_affiche += 1;
                     System.out.println("on a maintenant " + getNbre_bal() + " balles");
                     break;
                 default:
@@ -1354,11 +1343,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                 canvas = dessine_jeux(canvas);
             }
 
-            try {
+            //noinspection EmptyTryBlock
 
-            } catch (Exception exception) {
-
-            }
             postInvalidate();
 
         }
@@ -1397,8 +1383,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         canvas.save();
         getLechasseur().dessine_jeux(canvas);
 
-        getMcamion().bonhomme1[0].setBounds(getMcamion().position_x,
-                getMcamion().getPosition_y(), getMcamion().position_remorque_B,
+        getMcamion().bonhomme1[0].setBounds(getMcamion().position_x_camion,
+                getMcamion().getPosition_y(), getMcamion().getPosition_remorque_B(),
                 getMcamion().getPosition_y() + 150);
         getMcamion().bonhomme1[0].draw(canvas);
 
@@ -1407,9 +1393,9 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             if (getTab_nuages().get(num_nuage).affiche_nuage == true) {
                 getImage_nuage()[num_nuage].setBounds(
 
-                        getTab_nuages().get(num_nuage).position_x,
+                        getTab_nuages().get(num_nuage).position_x_camion,
                         getTab_nuages().get(num_nuage).position_y,
-                        getTab_nuages().get(num_nuage).position_x + 200,
+                        getTab_nuages().get(num_nuage).position_x_camion + 200,
                         getTab_nuages().get(num_nuage).position_y + 200);
                 getImage_nuage()[num_nuage].draw(canvas);
             }

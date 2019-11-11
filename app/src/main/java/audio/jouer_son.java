@@ -30,7 +30,7 @@ public class jouer_son {
 	   // mSoundPool.play( mSoundPoolMap.get(index), streamVolume, streamVolume, 1, 0, 1f);
 		mSoundPool.play(mSoundPoolMap.get(index), streamVolume, streamVolume,
 				1, 0, 1f);
-	   // mSoundPool.play(soundID, leftVolume, rightVolume, priority, loop, rate);
+		// mSoundPool.play(soundID, leftVolume, rightVolume, priority, loop, rate);
 	    
 	    
 	}
