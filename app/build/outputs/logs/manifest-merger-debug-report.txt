@@ -1,12 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-33:12
+ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-30:12
+INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-30:12
+INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-30:12
+INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-30:12
+INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-30:12
+INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-30:12
+INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:1:1-30:12
 	package
 		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:3:5-33
 		INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml
@@ -40,15 +40,13 @@ ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:13
 	android:name
 		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:13:22-76
 application
-ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:15:5-31:19
+ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:15:5-28:19
 	android:label
 		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:17:9-36
 	android:icon
 		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:16:9-45
 activity#jeux.Jeux_avion
 ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:18:9-26:20
-	android:label
-		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:20:13-46
 	android:name
 		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:19:13-43
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
@@ -61,12 +59,6 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:24:17-77
 	android:name
 		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:24:27-74
-activity#clavier.clavier
-ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:27:9-30:20
-	android:label
-		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:29:13-44
-	android:name
-		ADDED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:28:13-43
 uses-sdk
 INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml

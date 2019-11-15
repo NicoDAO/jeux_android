@@ -17,7 +17,7 @@
         android:label="jeu qui tue" >
         <activity
             android:name="jeux.Jeux_avion"
-            android:label="attrape les bêtes" >
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

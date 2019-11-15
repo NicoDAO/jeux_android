@@ -21,10 +21,13 @@ public class Jeux_generique extends Thread {
     public int largeur = 100;
     public int angle;
     public Drawable[] bonhomme1;
+    protected Drawable[] bonhommeVie;
     int position_z;
     Context context;
     public Jeux_generique(){
         bonhomme1 = new Drawable[1];
+        bonhommeVie = new Drawable[3];
+
     }
     public int getPositionXintiiale() {
         return positionXintiiale;
@@ -85,7 +88,10 @@ public class Jeux_generique extends Thread {
 
         canvas.restore();
         bonhomme1[0].draw(canvas);
-        //return canvas;
+
+        bonhommeVie[0].setBounds(10, 100, position_x_camion
+                + largeur, position_y + largeur);
+
     }
     private int x_score;
     private int y_score;

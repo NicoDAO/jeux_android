@@ -27,37 +27,27 @@
 17-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:13:22-76
 18
 19    <application
-19-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:15:5-31:19
+19-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:15:5-28:19
 20        android:debuggable="true"
 21        android:icon="@drawable/ic_launcher"
 21-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:16:9-45
 22        android:label="jeu qui tue"
 22-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:17:9-36
 23        android:testOnly="true" >
-24        <activity
+24        <activity android:name="jeux.Jeux_avion" >
 24-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:18:9-26:20
-25            android:name="jeux.Jeux_avion"
-25-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:19:13-43
-26            android:label="attrape les bêtes" >
-26-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:20:13-46
-27            <intent-filter>
-27-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:21:13-25:29
-28                <action android:name="android.intent.action.MAIN" />
-28-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:22:17-69
-28-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:22:25-66
-29
-30                <category android:name="android.intent.category.LAUNCHER" />
-30-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:24:17-77
-30-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:24:27-74
-31            </intent-filter>
-32        </activity>
-33        <activity
-33-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:27:9-30:20
-34            android:name="clavier.clavier"
-34-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:28:13-43
-35            android:label="jeu qui déchire" >
-35-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:29:13-44
-36        </activity>
-37    </application>
-38
-39</manifest>
+24-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:19:13-43
+25            <intent-filter>
+25-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:21:13-25:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:22:17-69
+26-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:22:25-66
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:24:17-77
+28-->/home/nicolas/Android/git/android/app/src/main/AndroidManifest.xml:24:27-74
+29            </intent-filter>
+30        </activity>
+31    </application>
+32
+33</manifest>

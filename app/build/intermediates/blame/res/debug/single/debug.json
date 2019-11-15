@@ -96,12 +96,12 @@
         "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/nuage.png"
     },
     {
-        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_bras_droite.png.flat",
-        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/bras_droite.png"
-    },
-    {
         "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable_camion.png.flat",
         "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable/camion.png"
+    },
+    {
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_bras_droite.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/bras_droite.png"
     },
     {
         "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_jambes_droite.png.flat",
@@ -132,16 +132,16 @@
         "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable/ship.png"
     },
     {
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable_balle.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable/balle.png"
+    },
+    {
         "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_martien.png.flat",
         "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/martien.png"
     },
     {
         "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_biip.wav.flat",
         "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/biip.wav"
-    },
-    {
-        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable_balle.png.flat",
-        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable/balle.png"
     },
     {
         "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_martien.png.flat",
@@ -212,20 +212,20 @@
         "source": "/home/nicolas/Android/git/android/app/src/main/res/raw/solm.wav"
     },
     {
-        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_jambes_gauche.png.flat",
-        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/jambes_gauche.png"
-    },
-    {
-        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_bras_gauche.png.flat",
-        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/bras_gauche.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_soucoupe_vert.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/soucoupe_vert.png"
     },
     {
         "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_martien.png.flat",
         "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/martien.png"
     },
     {
-        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_soucoupe_vert.png.flat",
-        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/soucoupe_vert.png"
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-ldpi_bras_gauche.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-ldpi/bras_gauche.png"
+    },
+    {
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_jambes_gauche.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-mdpi/jambes_gauche.png"
     },
     {
         "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/raw_cestparti.wav.flat",
@@ -288,12 +288,12 @@
         "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/gros_nuage.png"
     },
     {
-        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_bras_gauche.png.flat",
-        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/bras_gauche.png"
-    },
-    {
         "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable_bonhomme1.png.flat",
         "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable/bonhomme1.png"
+    },
+    {
+        "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-xhdpi_bras_gauche.png.flat",
+        "source": "/home/nicolas/Android/git/android/app/src/main/res/drawable-xhdpi/bras_gauche.png"
     },
     {
         "merged": "/home/nicolas/Android/git/android/app/build/intermediates/res/merged/debug/drawable-mdpi_poingxcf.png.flat",

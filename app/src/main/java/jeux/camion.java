@@ -67,9 +67,7 @@ public class camion extends Jeux_generique {
                         + pos_x_au_pif;
                 position_y_balle_dans_remorque = getPosition_y() + pos_y_au_pif
                         + 40;
-                // debug = String.format("1_index %x",index);
-                // System.out.println(debug);
-                break;
+               break;
             case 5:
             case 6:
             case 7:
@@ -98,10 +96,6 @@ public class camion extends Jeux_generique {
     public int getNombre_de_balle_dans_la_remorque() {
         return vecteur_balle.size();
        // return nombre_de_balle_dans_la_remorque;
-    }
-
-    public void setNombre_de_balle_dans_la_remorque(int nombre_de_balle_dans_la_remorque) {
-        this.nombre_de_balle_dans_la_remorque = nombre_de_balle_dans_la_remorque;
     }
 
     public int getPosition_remorque_B() {

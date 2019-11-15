@@ -16,7 +16,7 @@ public class balle extends Jeux_generique {
 
     }
 
-    public boolean thread_lance = false;
+    private boolean thread_lance = false;
 
     //public int position_x_camion = 0;
     //public int position_y;
@@ -62,13 +62,9 @@ public class balle extends Jeux_generique {
     private int limite_Basse = 0;
     private static int Nombre_de_balle = 2;
     private static int le_niveau = 1;
-
-
-    private static int[] carto_niveauVSballe = {4, 6, 8, 10, 10, 10, 10, 10, 10, 10, 10};
     private int[] carto_vitesse = {9, 7, 4, 3, 2, 1, 2, 3, 4, 7, 9};
     private int[] carto_vitesse_nrmalle = {10, 25, 30, 35, 35, 30, 25, 20, 1,
             1};
-    // private int[] carto_vitesse_chute = { 10, 9, 8, 7, 6, 5, 3, 3, 2, 2, 2 };
     private int[] carto_vitesse_chute = {8, 7, 6, 6, 6, 5, 4, 3, 2, 1, 1, 1, 1};
     private int[] carto_angle = {100, 96, 96, 95, 93, 90, 70, 40, 30, 10};
     public static int nombre_de_niveau = 4;
@@ -108,23 +104,6 @@ public class balle extends Jeux_generique {
     private int etatJeuFini = 0;
     private int arrete_thread = 0;
 
-    public static int getNombre_de_balle() {
-        return Nombre_de_balle;
-    }
-
-    public static void setNombre_de_balle(int nombre_de_balle) {
-        Nombre_de_balle = nombre_de_balle;
-    }
-
-    public static int getLe_niveau() {
-        return le_niveau;
-    }
-
-    public static void setLe_niveau(int le_niveau) {
-        balle.le_niveau = le_niveau;
-
-    }
-
     public int getNiveau() {
         return niveau;
     }
@@ -144,7 +123,6 @@ public class balle extends Jeux_generique {
         Random randomGenerator = new Random();
         couleur_au_pif = randomGenerator.nextInt(6);
         Random randomGenerator2 = new Random();
-        //image_avion = new Drawable[1];
         arrete_thread = 0;
         son_au_pif = randomGenerator2.nextInt(3);
         quel_avion = randomGenerator.nextInt(20);
@@ -204,19 +182,13 @@ public class balle extends Jeux_generique {
                 position_y = position_balle_depart_Y[getNiveau() - 1][getNum_balle_lance() - 1] * hauteur_ecran / 100;
                 vitesse = sens_balle[getNiveau() - 1][getNum_balle_lance() - 1];
 
-                //System.out.println("init balle " + getNum_balle_lance() + "X :" + position_x_camion + " Y  : " + position_y + "  +  " + vitesse);
-                //}
-                // position_y = 10;
                 largeur = 100;
                 sens = false;
                 if (vitesse < 0) {
                     sens = true;
                     vitesse = 0 - vitesse;
                 }
-
-
-                //   vitesse = 2;
-                duree_sleep = 50;
+                 duree_sleep = 50;
                 coordonnees_X_de_retour = largeur_ecran - largeur;
                 if (top_depart[getNiveau() - 1][getNum_balle_lance() - 1]-- == 0) {
                     statut_balle = balle_en_l_air;
@@ -358,40 +330,6 @@ public class balle extends Jeux_generique {
 
     }
 
-    public int getCouleur() {
-        int retour = Color.BLACK;
-        switch (couleur_au_pif) {
-            case 0:
-                retour = Color.YELLOW;
-                break;
-            case 1:
-                retour = Color.RED;
-                break;
-
-            case 2:
-                retour = Color.BLUE;
-                break;
-
-            case 3:
-                retour = Color.GREEN;
-                break;
-
-            case 4:
-                retour = Color.WHITE;
-                break;
-
-            case 5:
-                retour = Color.CYAN;
-                break;
-            case 6:
-                retour = Color.MAGENTA;
-                break;
-
-        }
-
-        return retour;
-
-    }
 
     private int calcul_vitesse_chute_balle(int position_y_C) {
         int index = 0;
@@ -476,14 +414,6 @@ public class balle extends Jeux_generique {
 
     }
 
-    public int getEtatJeuFini() {
-        return etatJeuFini;
-    }
-
-    public int getLimite_Basse() {
-        return limite_Basse;
-    }
-
     public void setLimite_Basse(int limite_Basse) {
         this.limite_Basse = limite_Basse;
     }
@@ -494,5 +424,13 @@ public class balle extends Jeux_generique {
 
     public void setNum_balle_lance(int num_balle_lance) {
         this.num_balle_lance = num_balle_lance;
+    }
+
+    public boolean isThread_lance() {
+        return thread_lance;
+    }
+
+    public void setThread_lance(boolean thread_lance) {
+        this.thread_lance = thread_lance;
     }
 }

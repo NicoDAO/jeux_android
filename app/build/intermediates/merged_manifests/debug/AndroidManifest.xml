@@ -21,18 +21,12 @@
         android:icon="@drawable/ic_launcher"
         android:label="jeu qui tue"
         android:testOnly="true" >
-        <activity
-            android:name="jeux.Jeux_avion"
-            android:label="attrape les bêtes" >
+        <activity android:name="jeux.Jeux_avion" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="clavier.clavier"
-            android:label="jeu qui déchire" >
         </activity>
     </application>
 

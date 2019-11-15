@@ -22,6 +22,7 @@ public class chasseur extends Jeux_generique {
 
     private int x_patte_1_bas = 30;
     private int y_bonhomme = 600;
+    private int nombre_de_vie = 0;
 
 
     private int x_patte_2_bas = 90;
@@ -52,6 +53,13 @@ public class chasseur extends Jeux_generique {
                 R.drawable.bonhomme1);
         bonhomme1[0] = C.getResources().getDrawable(
                 R.drawable.bonhomme2);
+        bonhommeVie[0] = C.getResources().getDrawable(
+                R.drawable.bonhomme2);
+        bonhommeVie[1] = C.getResources().getDrawable(
+                R.drawable.bonhomme1);
+        bonhommeVie[2] = C.getResources().getDrawable(
+                R.drawable.bonhomme2);
+
     }
 
 
@@ -146,6 +154,41 @@ public class chasseur extends Jeux_generique {
                     y_torse_haut);
             bonhomme1[1].draw(canvas);
         }
+        bonhommeVie[0].setBounds(10, 100, 50 ,150);
+        bonhommeVie[1].setBounds(100, 100, 150 ,150);
+        bonhommeVie[2].setBounds(200, 100, 250 ,150);
+
+        switch (nombre_de_vie){
+            case 0:
+            bonhommeVie[0].setVisible(false, false);
+            bonhommeVie[1].setVisible(false, false);
+            bonhommeVie[2].setVisible(false, false);
+            break;
+            case 1:
+                bonhommeVie[0].setVisible(true, true);
+                bonhommeVie[1].setVisible(false, true);
+                bonhommeVie[2].setVisible(false, true);
+                bonhommeVie[0].draw(canvas);
+
+                break;
+            case 2:
+                bonhommeVie[0].setVisible(true, true);
+                bonhommeVie[1].setVisible(true, true);
+                bonhommeVie[2].setVisible(false, true);
+                bonhommeVie[0].draw(canvas);
+                bonhommeVie[1].draw(canvas);
+
+                break;
+            case 3:
+                bonhommeVie[0].setVisible(true, true);
+                bonhommeVie[1].setVisible(true, true);
+                bonhommeVie[2].setVisible(true, true);
+                bonhommeVie[0].draw(canvas);
+                bonhommeVie[1].draw(canvas);
+                bonhommeVie[2].draw(canvas);
+
+                break;
+        }
 
         canvas.restore();
 
@@ -202,5 +245,13 @@ public class chasseur extends Jeux_generique {
 
     public void setY_torse_haut(int y_torse_haut) {
         this.y_torse_haut = y_torse_haut;
+    }
+
+    public int getNombre_de_vie() {
+        return nombre_de_vie;
+    }
+
+    public void setNombre_de_vie(int nombre_de_vie) {
+        this.nombre_de_vie = nombre_de_vie;
     }
 }
