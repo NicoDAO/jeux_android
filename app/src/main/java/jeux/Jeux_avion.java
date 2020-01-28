@@ -21,6 +21,7 @@ import android.view.View.OnTouchListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -139,7 +140,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
     private int hauteur_ecran;
     private int largeur_ecran;
-
+    private int vitesse_vent = 0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -288,6 +289,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         byte num_nuage = 0;
         for (num_nuage = 0; num_nuage < getNbre_nuage(); num_nuage++) {
             if (getTab_nuages().get(num_nuage).thread_lance == false) {
+                getTab_nuages().get(num_nuage).setVitesse_vent(vitesse_vent);
                 getTab_nuages().get(num_nuage).start();
                 getTab_nuages().get(num_nuage).thread_lance = true;
             }
@@ -302,6 +304,15 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             return;
         int num_babale = num_balle_a_lancer;
         System.out.println("demarre la balle " + num_balle_a_lancer);
+        Random randomGenerator = new Random();
+        vitesse_vent =  (randomGenerator.nextInt(4) )-2;
+        tab_poing.setVitesse_vent(vitesse_vent);
+
+        for (int num_nuage = 0; num_nuage < getNbre_nuage(); num_nuage++) {
+                getTab_nuages().get(num_nuage).setVitesse_vent(vitesse_vent);
+              //TODO mettre au bon endroit
+
+        }
 
         for (balle tab_balle : tab_balle) {
             if (tab_balle.isThread_lance() == false) {
@@ -457,8 +468,11 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         setLechasseur(new chasseur(this.getBaseContext()));
         getLechasseur().setContext(getBaseContext());
         for (byte i = 0; i < getNbre_nuage(); i++) {
-            getTab_nuages().add(new nuage());
-            getTab_nuages().add(new nuage());
+            nuage ng = new nuage();
+            ng.setLargeur_ecran(largeur_ecran);
+            getTab_nuages().add(ng);
+
+            //getTab_nuages().add(new nuage());
         }
 
     }

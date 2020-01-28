@@ -38,8 +38,10 @@ public class chasseur extends Jeux_generique {
 
     public boolean affiche_torse = false;
     static final int nbre_membre_chasseur = 7;
+    private int hauteur_bonh;// = getHauteur_de_l_ecran()-400;
 
     public chasseur(Context C) {
+
         this.context = C;
 
 
@@ -136,7 +138,7 @@ public class chasseur extends Jeux_generique {
 
     @Override
     public void dessine_jeux(Canvas canvas) {
-
+        hauteur_bonh = getHauteur_de_l_ecran()-400;
         canvas.save();
         if(select_image_bonhome == 0){
             bonhomme1[0].setVisible(true,false);
@@ -154,9 +156,10 @@ public class chasseur extends Jeux_generique {
                     y_torse_haut);
             bonhomme1[1].draw(canvas);
         }
-        bonhommeVie[0].setBounds(10, 100, 50 ,150);
-        bonhommeVie[1].setBounds(100, 100, 150 ,150);
-        bonhommeVie[2].setBounds(200, 100, 250 ,150);
+
+        bonhommeVie[0].setBounds(10, hauteur_bonh-350, 50 ,hauteur_bonh-300);
+        bonhommeVie[1].setBounds(10, hauteur_bonh-250, 50 ,hauteur_bonh-200);
+        bonhommeVie[2].setBounds(10, hauteur_bonh-150, 50 ,hauteur_bonh-100);
 
         switch (nombre_de_vie){
             case 0:

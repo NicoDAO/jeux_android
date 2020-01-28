@@ -10,7 +10,7 @@ import android.graphics.drawable.Drawable;
  * Created by nicolasdaout on 26/02/15.
  */
 public class Jeux_generique extends Thread {
-    int largeur_ecran = 0;
+    protected int largeur_ecran = 0;
     //  int hauteur_ecran = 0;
     private int hauteur_de_l_ecran;
     private int positionXintiiale;
@@ -152,5 +152,13 @@ public class Jeux_generique extends Thread {
 
     public void setScore_a_afficher(boolean score_a_afficher) {
         this.score_a_afficher = score_a_afficher;
+    }
+
+    public int getLargeur_ecran() {
+        return largeur_ecran;
+    }
+
+    public void setLargeur_ecran(int largeur_ecran) {
+        this.largeur_ecran = largeur_ecran;
     }
 }

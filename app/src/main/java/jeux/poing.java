@@ -27,6 +27,7 @@ public class poing extends Jeux_generique {
     public boolean le_poing_est_parti = false;
     public int angle_poing = 0;
     private int angle_temp = 0;
+    private int vitesse_vent = 0;
 
     public void lance_le_poing_vers_cible(int x, int y) {
 
@@ -98,6 +99,7 @@ public class poing extends Jeux_generique {
                     etat_lance_le_poing = 2;
 
                 }
+                X_poing += vitesse_vent ;
 
                 break;
             case 2://le poing revient au point de port
@@ -135,4 +137,11 @@ public class poing extends Jeux_generique {
 
     }
 
+    public int getVitesse_vent() {
+        return vitesse_vent;
+    }
+
+    public void setVitesse_vent(int vitesse_vent) {
+        this.vitesse_vent = vitesse_vent;
+    }
 }
