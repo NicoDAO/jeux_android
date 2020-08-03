@@ -436,6 +436,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         getMjouer_son().addSound(7, nicolas.console.pr.R.raw.whawha2_m1);
         getMjouer_son().addSound(8, nicolas.console.pr.R.raw.whawha2_0);
 
+     //TODO remettre les sons
     }
 
     void init_capteur() {
@@ -455,6 +456,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                 R.drawable.balle);
         getImage_gameOver()[0] = getBaseContext().getResources().getDrawable(
                 R.drawable.game_over);
+    //TODO remettre les images
 
 
     }
