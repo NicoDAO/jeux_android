@@ -885,8 +885,6 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         @Override
         public void run() {
 
-            int cx1;
-            int cy1, cy2;
             switch (etatJeu) {
                 case 0:
 
