@@ -880,7 +880,6 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     private int dessine_balles = 0;
 
     class MyTimerTask extends TimerTask {
-        private String mouch;
 
         @Override
         public void run() {
@@ -916,7 +915,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
                     }
                     test_balle_perdu();
-                    if (getTab_poing().le_poing_est_parti == false) {
+                    if (!getTab_poing().le_poing_est_parti) {
                         getTab_poing().X_poing = getLechasseur().getX_torse_haut() - 50;
                         getTab_poing().Y_poing = getLechasseur().getY_torse_haut() - 50;
                     } else {
