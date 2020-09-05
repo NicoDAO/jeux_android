@@ -13,21 +13,28 @@ android {
         targetSdkVersion 29
     }
 
-    buildTypes {
+    buildTypes {s
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
-            debuggable = true
-            applicationIdSuffix = kotlin_version
+            debuggable = false
             versionNameSuffix = kotlin_version
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dependenciesInfo {
+        includeInApk true
+        includeInBundle true
     }
 }
 repositories {
     mavenCentral()
 }
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}"
     testImplementation 'org.testng:testng:6.9.6'
 
 }

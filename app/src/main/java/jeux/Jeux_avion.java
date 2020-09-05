@@ -4,6 +4,7 @@ package jeux;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -33,43 +34,22 @@ import nicolas.console.pr.R.raw;
 public class Jeux_avion extends Activity implements OnTouchListener {
     private int nbre_bal = 4;
     private static final int nbre_nuage = 5;
-    private static final int nbre_membre_chasseur = 7;
     private SensorManager mSensorManager;
     private Capteur mcapteur;
 
-    private Paint mPaint;
-    private int[] mColors = null;
     private int orientation_X = 0;
     private int orientation_Y = 0;
     private int orientation_Z = 0;
-    private float magnetic_1 = 0;
-    private float magnetic_2 = 0;
-    private float magnetic_3 = 0;
     private float accel_X = 0;
     private float accel_Y = 0;
     private float accel_Z = 0;
     private int x1;
-    private int x2;
-    private int y1;
-    private int y2;
-    private int offset_orientation_X = 0;
-    private int offset_orientation_Y = 0;
-    private int offset_orientation_Z = 0;
-    private float offset_magnetic_1 = 0;
-    private float offset_magnetic_2 = 0;
-    private float offset_magnetic_3 = 0;
-    private char Rouge = 100;
-    private char Vert = 100;
-    private char Bleu = 100;
-    private char type_affichage = 0;
-    private int filtre;
+
     private int pos_X;
     private int pos_Y;
     private int pos_Z;
     private int score;
-    private int num;
-    private boolean basc;
-    private String chaine = "coucou";
+     private String chaine = "coucou";
     private int t;
     private List <balle> tab_balle = new ArrayList();
     private int scoreGeneral = 0;
@@ -219,10 +199,10 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             switch (statut_temp) {
                 case balle.balle_en_l_air:
 
-                if (test_si_balle_attrapee(num_ball)) {
+                    if (test_si_balle_attrapee(num_ball)) {
 
                         balle_attrapee = true;
-                       int score_temp;
+                        int score_temp;
                         if (getTab_balle().get(num_ball).avion_vert == true) {
                             score_temp = (33 * getTab_balle().get(num_ball).vitesse);
                             setScore(getScore() + score_temp);
@@ -247,7 +227,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
                     }
                     break;
-             case balle.balle_perdu:
+                case balle.balle_perdu:
                     vie_perdue = 1;
 
                     //  getImage_gameOver()[1].draw(canvas);
@@ -265,7 +245,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         boolean balle_attrapee = false;
 
         for (int num_balle = 0; num_balle < getNbre_bal(); num_balle++) {
-           int  statut_temp = getTab_balle().get(num_balle).Get_Statut_de_la_Balle();
+            int  statut_temp = getTab_balle().get(num_balle).Get_Statut_de_la_Balle();
             //  if (statut_temp == balle.balle_en_l_air) {
             switch (statut_temp) {
 
@@ -309,8 +289,8 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         tab_poing.setVitesse_vent(vitesse_vent);
 
         for (int num_nuage = 0; num_nuage < getNbre_nuage(); num_nuage++) {
-                getTab_nuages().get(num_nuage).setVitesse_vent(vitesse_vent);
-              //TODO mettre au bon endroit
+            getTab_nuages().get(num_nuage).setVitesse_vent(vitesse_vent);
+            //TODO mettre au bon endroit
 
         }
 
@@ -436,7 +416,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         getMjouer_son().addSound(7, nicolas.console.pr.R.raw.whawha2_m1);
         getMjouer_son().addSound(8, nicolas.console.pr.R.raw.whawha2_0);
 
-     //TODO remettre les sons
+        //TODO remettre les sons
     }
 
     void init_capteur() {
@@ -456,7 +436,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                 R.drawable.balle);
         getImage_gameOver()[0] = getBaseContext().getResources().getDrawable(
                 R.drawable.game_over);
-    //TODO remettre les images
+        //TODO remettre les images
 
 
     }
@@ -966,7 +946,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                         etatJeu = 1;
                     }
 
-                        break;
+                    break;
                 case 1://reinitialise balles;
                     setInitialise(false);//on relance le jeu
 
@@ -1153,15 +1133,22 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         canvas.drawText("" + getMcamion().getNombre_de_balle_dans_la_remorque() + " / " + getNbre_bal(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 8, getmBitmapPaint());
         //canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 15, getmBitmapPaint());
 
-           if(nombre_de_vie == 0) {
-                getImage_gameOver()[0].setBounds(getLargeur_ecran() / 10, getHauteur_ecran() / 4, getLargeur_ecran() * 9 / 10, getHauteur_ecran() * 3 / 4);
-                getImage_gameOver()[0].draw(canvas);
-            }
+        if(nombre_de_vie == 0) {
+            getImage_gameOver()[0].setBounds(getLargeur_ecran() / 10, getHauteur_ecran() / 4, getLargeur_ecran() * 9 / 10, getHauteur_ecran() * 3 / 4);
+            getImage_gameOver()[0].draw(canvas);
+        }
 
 
         return canvas;
     }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
 
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+        }
+
+        }
     @Override
     protected void onResume() {
         super.onResume();
@@ -1170,7 +1157,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                         | SensorManager.SENSOR_ACCELEROMETER,
                 SensorManager.SENSOR_DELAY_NORMAL);
     }
-
+    
     @Override
     protected void onStop() {
         super.onStop();

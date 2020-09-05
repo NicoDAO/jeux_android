@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/nicolas/Android/git/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/home/nicolas/StudioProjects/jeux_android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
-                    "source": "/home/nicolas/Android/git/android/app/src/main/res/values/strings.xml",
+                    "source": "/home/nicolas/StudioProjects/jeux_android/app/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "4,3",
                         "startColumns": "4,4",

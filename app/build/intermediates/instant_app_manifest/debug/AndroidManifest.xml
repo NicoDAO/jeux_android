@@ -2,27 +2,30 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nicolas.console.pr"
     android:targetSandboxVersion="2"
-    android:versionCode="1"
-    android:versionName="appli_nicolas" >
+    android:versionCode="2"
+    android:versionName="essai_1" >
 
     <uses-sdk
         android:minSdkVersion="20"
         android:targetSdkVersion="29" />
 
-    <uses-permission android:name="android.permission.INTERNET" >
+    <!--
+    uses-permission android:name="android.permission.INTERNET" >
     </uses-permission>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
     </uses-permission>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    </uses-permission
+    -->
+    <!-- uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/ -->
     <application
         android:debuggable="true"
         android:icon="@drawable/ic_launcher"
-        android:label="jeu qui tue"
+        android:label="Attrape"
         android:testOnly="true" >
-        <activity android:name="jeux.Jeux_avion" >
+        <activity
+            android:name="jeux.Jeux_avion"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
