@@ -1,5 +1,7 @@
 package jeux;
 
+import android.util.Log;
+
 public class affiche_score {
     public affiche_score() {
     }
@@ -41,6 +43,7 @@ public class affiche_score {
 
     public void decremente_vie_score() {
         if (duree_vie_score > 0) duree_vie_score--;
+        Log.d("decrement vie","RR");
 
     }
 

@@ -14,6 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.hardware.SensorListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -488,7 +489,9 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         getLechasseur().init_pos_chasseur();
         getTab_balle().clear();
         for (byte i = 0; i < getNbre_bal(); i++) {
-            System.out.println("  configure balle  " + i + " / " + getNbre_bal());
+            //System.out.println("  configure balle  " + i + " / " + getNbre_bal());
+            Log.d("balle","configure balle  " + i +" / " + getNbre_bal());
+
             getTab_balle().add(new balle(this.getBaseContext()));
             getTab_balle().get(i).setNiveau(niveau_jeu);
             getTab_balle().get(i).setNum_balle_lance(i);
@@ -1157,7 +1160,10 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                         | SensorManager.SENSOR_ACCELEROMETER,
                 SensorManager.SENSOR_DELAY_NORMAL);
     }
-    
+    protected void onPause() {
+            super.onPause();
+
+    }
     @Override
     protected void onStop() {
         super.onStop();

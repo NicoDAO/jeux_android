@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 /**
  * Created by nicolasdaout on 26/02/15.
@@ -111,8 +112,9 @@ public class Jeux_generique extends Thread {
         return y_score;
     }
     public int calculYScore() {
-        if (duree_vie_score > 0) {
+        if (duree_vie_score-- > 0) {
             y_score--;
+            Log.d("D","duree_vie_score = "+ duree_vie_score);
         }
         if (duree_vie_score == 0) {
             score_a_afficher = false;

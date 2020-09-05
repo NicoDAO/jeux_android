@@ -256,7 +256,8 @@ public class balle extends Jeux_generique {
                 setX_score(position_x_camion);
                 setY_score(position_y);
                 setScore_a_afficher(true);
-                duree_vie_score = 100;
+                setDuree_vie_score(100);
+               // duree_vie_score = 100;
                 break;
             case balle_tombe:
                 vitesse = calcul_vitesse_chute_balle(position_y);
