@@ -270,7 +270,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         byte num_nuage = 0;
         for (num_nuage = 0; num_nuage < getNbre_nuage(); num_nuage++) {
             if (getTab_nuages().get(num_nuage).thread_lance == false) {
-                getTab_nuages().get(num_nuage).setVitesse_vent(vitesse_vent);
+                getTab_nuages().get(num_nuage).vitesse_vent = vitesse_vent;
                 getTab_nuages().get(num_nuage).start();
                 getTab_nuages().get(num_nuage).thread_lance = true;
             }
@@ -290,7 +290,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         tab_poing.setVitesse_vent(vitesse_vent);
 
         for (int num_nuage = 0; num_nuage < getNbre_nuage(); num_nuage++) {
-            getTab_nuages().get(num_nuage).setVitesse_vent(vitesse_vent);
+            getTab_nuages().get(num_nuage).vitesse_vent = vitesse_vent;
             //TODO mettre au bon endroit
 
         }
@@ -1111,7 +1111,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
             // if (getTab_score()[babal].isScore_a_afficher() == true) {
             if (getTab_balle().get(babal).isScore_a_afficher()) {
                 getTab_balle().get(babal).calculYScore();
-                setChaine(String.format("%d points", getTab_balle().get(babal).get_score()));
+                setChaine(String.format("%d", getTab_balle().get(babal).get_score()));
                 canvas.drawText(getChaine(), getTab_balle().get(babal).getX_score(),
                         getTab_balle().get(babal).getY_score(), getmBitmapPaint());
             }
@@ -1124,7 +1124,7 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         }
         getmBitmapPaint().setColor(Color.YELLOW);
         setChaine(String.format("score %d   %d vies", getScore(),nombre_de_vie));
-        canvas.drawText("vie " + nombre_de_vie + "  niveau " + niveau_affiche, getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 10, getmBitmapPaint());
+        canvas.drawText("vie " + nombre_de_vie + "  niveau " + niveau_affiche, getLargeur_ecran() * 5/7 , getHauteur_ecran() / 10, getmBitmapPaint());
         getmBitmapPaint().setTextSize(100);
         canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 15, getmBitmapPaint());
 
