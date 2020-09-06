@@ -859,7 +859,11 @@ public class Jeux_avion extends Activity implements OnTouchListener {
     }
 
 
-    private int etatJeu = 0;
+   // private test tt=etatJeu.
+    public etatJeuEnum jj = etatJeuEnum.Initialisation;
+
+   // private int etatJeu = 0;
+
     private int dessine_balles = 0;
 
     class MyTimerTask extends TimerTask {
@@ -867,9 +871,11 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         @Override
         public void run() {
 
-            switch (etatJeu) {
-                case 0:
-
+            switch (jj) {
+                case Initialisation:
+                    jj = etatJeuEnum.EnCours;
+                    break;
+                case EnCours:
                     if (!isInitialise()) {
 
                         demarre_le_jeux();
@@ -941,20 +947,28 @@ public class Jeux_avion extends Activity implements OnTouchListener {
                     if (getMcamion().getNombre_de_balle_dans_la_remorque() >= (getNbre_bal())) {
                         getMcamion().initialise_camion();
                         niveau_jeu++;
-                        etatJeu = 1;
+                       // etatJeu = 1;
+                        jj= etatJeuEnum.ReinitialiseBalles;
                         niveau_affiche += 1;
                     }
                     if (vie_perdue == 1) {
-                        nombre_de_vie --;
-                        etatJeu = 1;
+                        if (nombre_de_vie -- ==0){//si on a bouffé toutes les vies
+                          //  etatJeu = 99;
+                            jj=etatJeuEnum.PerduGameOver;
+                        }else {
+                           // etatJeu = 1;
+                            jj = etatJeuEnum.ReinitialiseBalles;
+                        }
+
                     }
 
                     break;
-                case 1://reinitialise balles;
+                case ReinitialiseBalles://reinitialise balles;
                     setInitialise(false);//on relance le jeu
 
                     num_balle_a_lancer = 0;
-                    etatJeu = 0;
+                  //  etatJeu = 0;
+                    jj= etatJeuEnum.Initialisation;
                     dessine_balles = 0;
                     vie_perdue = 0;
                     setT(0);
@@ -972,8 +986,13 @@ public class Jeux_avion extends Activity implements OnTouchListener {
 
                     System.out.println("on a maintenant " + getNbre_bal() + " balles");
                     break;
+                case PerduGameOver://fin de partie
+                    affiche_fin_jeux = true;
+
+
+                    break;
                 default:
-                    throw new IllegalStateException("Unexpected value: " + etatJeu);
+                    throw new IllegalStateException("Unexpected value: " +  etatJeuEnum.Initialisation.toString());
             }
         }
 
@@ -1066,84 +1085,93 @@ public class Jeux_avion extends Activity implements OnTouchListener {
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
         canvas.drawRect(10, limitebasse_partie, getLargeur_ecran(), getHauteur_ecran(), paint);
-
-        paint.setColor(Color.RED);
-        canvas.drawRect(10, getHauteur_ecran() - 300 - getPuissance_temporaire(), 30, getHauteur_ecran() - 300, paint);
-        if (dessine_balles == 1) {
-            for (int bb = 0; bb < getNum_ball(); bb++) {
-                getTab_balle().get(bb).setNiveau(niveau_jeu);
-                getTab_balle().get(bb).dessine(canvas);
-
-            }
-        }
-        canvas.save();
-        canvas.rotate(getTab_poing().angle_poing, getTab_poing().X_poing + 50,
-                getTab_poing().Y_poing + 50);// angle_poing
-        getImage_poing()[1].setBounds(getTab_poing().X_poing, getTab_poing().Y_poing,
-                getTab_poing().X_poing + 100, getTab_poing().Y_poing + 100);
-
-        getImage_poing()[1].draw(canvas);
-        canvas.restore();
-
-        canvas.save();
-        getLechasseur().dessine_jeux(canvas);
-
-        getMcamion().bonhomme1[0].setBounds(getMcamion().position_x_camion,
-                getMcamion().getPosition_y(), getMcamion().getPosition_remorque_B(),
-                getMcamion().getPosition_y() + 150);
-        getMcamion().bonhomme1[0].draw(canvas);
-
-        for (byte num_nuage = 0; num_nuage < getNbre_nuage(); num_nuage++) {
-
-            if (getTab_nuages().get(num_nuage).affiche_nuage == true) {
-                getImage_nuage()[num_nuage].setBounds(
-
-                        getTab_nuages().get(num_nuage).position_x_camion,
-                        getTab_nuages().get(num_nuage).position_y,
-                        getTab_nuages().get(num_nuage).position_x_camion + 200,
-                        getTab_nuages().get(num_nuage).position_y + 200);
-                getImage_nuage()[num_nuage].draw(canvas);
-            }
-
-        }
-
-        for (int babal = 0; babal < getNbre_bal(); babal++) {
-            // if (getTab_score()[babal].isScore_a_afficher() == true) {
-            if (getTab_balle().get(babal).isScore_a_afficher()) {
-                getTab_balle().get(babal).calculYScore();
-                setChaine(String.format("%d", getTab_balle().get(babal).get_score()));
-                canvas.drawText(getChaine(), getTab_balle().get(babal).getX_score(),
-                        getTab_balle().get(babal).getY_score(), getmBitmapPaint());
-            }
-        }
-        if (getG_niveau().affiche_niveau_duree > 0) {
-            setChaine(getG_niveau().nom_niveau);
-            getmBitmapPaint().setTextSize(100);
-            canvas.drawText(getChaine(), 50, 550, getmBitmapPaint());
-
-        }
-        getmBitmapPaint().setColor(Color.YELLOW);
-        setChaine(String.format("score %d   %d vies", getScore(),nombre_de_vie));
-        canvas.drawText("vie " + nombre_de_vie + "  niveau " + niveau_affiche, getLargeur_ecran() * 5/7 , getHauteur_ecran() / 10, getmBitmapPaint());
-        getmBitmapPaint().setTextSize(100);
-        canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 15, getmBitmapPaint());
-
-        getmBitmapPaint().setColor(Color.WHITE);
-        getmBitmapPaint().setTextSize(40);
-
-        canvas.drawText(getChaine(), 50, getPosition_y_score(), getmBitmapPaint());
-        getmBitmapPaint().setColor(Color.RED);
-        canvas.drawText("" + getMcamion().getNombre_de_balle_dans_la_remorque() + " / " + getNbre_bal(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 8, getmBitmapPaint());
-        //canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 15, getmBitmapPaint());
-
-        if(nombre_de_vie == 0) {
+        if(affiche_fin_jeux == true) {
             getImage_gameOver()[0].setBounds(getLargeur_ecran() / 10, getHauteur_ecran() / 4, getLargeur_ecran() * 9 / 10, getHauteur_ecran() * 3 / 4);
             getImage_gameOver()[0].draw(canvas);
-        }
+        }else {
+            paint.setColor(Color.RED);
+            canvas.drawRect(10, getHauteur_ecran() - 300 - getPuissance_temporaire(), 30, getHauteur_ecran() - 300, paint);
+            if (dessine_balles == 1) {
+                for (int bb = 0; bb < getNum_ball(); bb++) {
+                    getTab_balle().get(bb).setNiveau(niveau_jeu);
+                    getTab_balle().get(bb).dessine(canvas);
 
+                }
+            }
+            canvas.save();
+            canvas.rotate(getTab_poing().angle_poing, getTab_poing().X_poing + 50,
+                    getTab_poing().Y_poing + 50);// angle_poing
+            getImage_poing()[1].setBounds(getTab_poing().X_poing, getTab_poing().Y_poing,
+                    getTab_poing().X_poing + 100, getTab_poing().Y_poing + 100);
+
+            getImage_poing()[1].draw(canvas);
+            canvas.restore();
+
+            canvas.save();
+            getLechasseur().dessine_jeux(canvas);
+
+            getMcamion().bonhomme1[0].setBounds(getMcamion().position_x_camion,
+                    getMcamion().getPosition_y(), getMcamion().getPosition_remorque_B(),
+                    getMcamion().getPosition_y() + 150);
+            getMcamion().bonhomme1[0].draw(canvas);
+
+            for (byte num_nuage = 0; num_nuage < getNbre_nuage(); num_nuage++) {
+
+                if (getTab_nuages().get(num_nuage).affiche_nuage == true) {
+                    getImage_nuage()[num_nuage].setBounds(
+
+                            getTab_nuages().get(num_nuage).position_x_camion,
+                            getTab_nuages().get(num_nuage).position_y,
+                            getTab_nuages().get(num_nuage).position_x_camion + 200,
+                            getTab_nuages().get(num_nuage).position_y + 200);
+                    getImage_nuage()[num_nuage].draw(canvas);
+                }
+
+            }
+
+            for (int babal = 0; babal < getNbre_bal(); babal++) {
+                // if (getTab_score()[babal].isScore_a_afficher() == true) {
+                if (getTab_balle().get(babal).isScore_a_afficher()) {
+                    getTab_balle().get(babal).calculYScore();
+                    setChaine(String.format("%d", getTab_balle().get(babal).get_score()));
+                    canvas.drawText(getChaine(), getTab_balle().get(babal).getX_score(),
+                            getTab_balle().get(babal).getY_score(), getmBitmapPaint());
+                }
+            }
+            if (getG_niveau().affiche_niveau_duree > 0) {
+                setChaine(getG_niveau().nom_niveau);
+                getmBitmapPaint().setTextSize(100);
+                canvas.drawText(getChaine(), 50, 550, getmBitmapPaint());
+
+            }
+            getmBitmapPaint().setColor(Color.YELLOW);
+            setChaine(String.format("score %d   %d vies", getScore(), nombre_de_vie));
+            if(nombre_de_vie>1) {
+                canvas.drawText("reste " + nombre_de_vie + " vies", getLargeur_ecran() * 5 / 7, getHauteur_ecran() / 10, getmBitmapPaint());
+                canvas.drawText("niveau " + niveau_affiche, getLargeur_ecran() * 5 / 7, getHauteur_ecran() / 8, getmBitmapPaint());
+
+            }else{
+                canvas.drawText("dernière vie " , getLargeur_ecran() * 5 / 7, getHauteur_ecran() / 10, getmBitmapPaint());
+                canvas.drawText("niveau " + niveau_affiche, getLargeur_ecran() * 5 / 7, getHauteur_ecran() / 8, getmBitmapPaint());
+
+            }
+            getmBitmapPaint().setTextSize(100);
+            canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 6, getmBitmapPaint());
+
+            getmBitmapPaint().setColor(Color.WHITE);
+            getmBitmapPaint().setTextSize(40);
+
+            canvas.drawText(getChaine(), 50, getPosition_y_score(), getmBitmapPaint());
+            getmBitmapPaint().setColor(Color.RED);
+            canvas.drawText("" + getMcamion().getNombre_de_balle_dans_la_remorque() + " / " + getNbre_bal(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 8, getmBitmapPaint());
+            //canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 15, getmBitmapPaint());
+
+
+        }
 
         return canvas;
     }
+    boolean affiche_fin_jeux = false;
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
