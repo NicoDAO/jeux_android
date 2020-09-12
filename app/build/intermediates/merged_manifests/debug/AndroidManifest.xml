@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="nicolas.console.pr"
-    android:versionCode="2"
-    android:versionName="essai_1" >
+    android:versionCode="8"
+    android:versionName="essai_8" >
 
     <uses-sdk
         android:minSdkVersion="20"
@@ -19,8 +19,8 @@
     <!-- uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/ -->
     <application
         android:debuggable="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="Attrape"
+        android:icon="@drawable/bonhomme1"
+        android:label="Attrape V8"
         android:testOnly="true" >
         <activity
             android:name="jeux.Jeux_avion"

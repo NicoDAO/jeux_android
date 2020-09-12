@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="nicolas.console.pr"
-    android:versionCode="4"
-    android:versionName="essai_4">
+    android:versionCode="8"
+    android:versionName="essai_8">
     <!--uses-permission android:name="android.permission.INTERNET" >
     </uses-permission>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
@@ -14,15 +14,17 @@
 
     <application
         android:icon="@drawable/bonhomme1"
-        android:label="Attrape V4" >
+        android:label="Attrape V8" >
         <activity
             android:name="jeux.Jeux_avion"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden">
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+           >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
     </application>

@@ -1,12 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-30:12
-INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-30:12
-INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-30:12
-INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-30:12
-INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-30:12
-INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-30:12
-INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-30:12
+ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-32:12
+INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-32:12
+INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-32:12
+INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-32:12
+INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-32:12
+INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-32:12
+INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:1:1-32:12
 	package
 		ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:3:5-33
 		INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml
@@ -24,27 +24,27 @@ INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidMani
 		INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml
 		INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml
 application
-ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:15:5-28:19
+ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:15:5-30:19
 	android:label
-		ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:17:9-32
+		ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:17:9-35
 	android:icon
-		ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:16:9-45
+		ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:16:9-43
 activity#jeux.Jeux_avion
-ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:18:9-26:20
+ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:18:9-28:20
 	android:configChanges
 		ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:20:13-87
 	android:name
 		ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:19:13-43
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:21:13-25:29
+ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:22:13-26:29
 action#android.intent.action.MAIN
-ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:22:17-69
+ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:22:25-66
+		ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:24:17-77
+ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:25:17-77
 	android:name
-		ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:24:27-74
+		ADDED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml:25:27-74
 uses-sdk
 INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/nicolas/StudioProjects/jeux_android/app/src/main/AndroidManifest.xml
