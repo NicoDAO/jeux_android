@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
 import android.view.View.OnTouchListener;
 
@@ -38,6 +39,7 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
     private SensorManager mSensorManager;
     private Capteur mcapteur;
     Blablabla texteIntro = new Blablabla();
+    Gestuelle maGestuelle = new Gestuelle();
     private int orientation_X = 0;
     private int orientation_Y = 0;
     private int orientation_Z = 0;
@@ -85,6 +87,10 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
     private chasseur Lechasseur;
 
     private byte appuis_ecran = 0;
+  /*  private float glisse_haut = 0;
+    private float glisse_bas = 0;
+    private float glisse_droite = 0;
+    private float glisse_gauche = 0;*/
     private int position_y_score;
     private int Y_viseur = 0;
     private static final int MENU_1 = 1;
@@ -372,7 +378,7 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
                         setPuissance_state((byte) 1);
                         setPuissance_temporaire(0);
                         break;
-                    case 1:
+                    case 1:// mesure le temps entre 2 appuie ecrans pour calculer la force du tir
                         setTemps_fin(temps);
                         setForce_de_tir((getTemps_fin() - getTemps_debut()) * 5);
                         setY_viseur(600 - getForce_de_tir());
@@ -889,12 +895,14 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
 
     // private test tt=etatJeu.
     public etatJeuEnum jj = etatJeuEnum.Introduction;
+    int position_bonhome = 0;
 
     // private int etatJeu = 0;
 
     private int dessine_balles = 0;
     private int dessine_oups = 0;
     private int timer_etat_oups = 0;
+
     class MyTimerTask extends TimerTask {
 
         @Override
@@ -941,7 +949,7 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
                         dessine_balles = 1;
                         setInitialise(true);
                         setT(0);
-
+                        position_bonhome = largeur_ecran/2;
                         // return;
                         // initialise_jeux();
                     }
@@ -996,14 +1004,40 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
                             break;
                     }
                     // met_a_jour_postion_remorque_pour_les_balles();
-                    gere_puissance_de_tir(getT());
+                    float puissance_tir = 0;
+                    if(maGestuelle.isNouveauDeplacementY()){//mode sweep
+                        //si on a glissé  le doigt vers le haut
+                        puissance_tir = maGestuelle.getGlisse_haut();//on utilise le glissé doigt
+                        System.out.println("nouveau tir demandé puissance " + puissance_tir);
+                        setForce_de_tir((int)puissance_tir);
+                        setY_viseur(600 - getForce_de_tir());
+
+                        setPuissance_temporaire((int)puissance_tir); // pour régler la puissance de tir
+                        if (test_si_poing_en_bas() == 1) {
+                            getTab_poing().lance_le_poing_vers_cible(getX1(), getY_viseur());
+                        }
+
+                    }else {//mode tapotement
+                       gere_puissance_de_tir(getT());//sinon on utilise le temps entre 2 tapotements
+                    }
                     //  balle.setNiveau(getG_niveau().get_niveau());
                     if (getTab_poing().poing_initialise == false) {
                         getTab_poing().position_initiale_Y = getPos_Y();
                         getTab_poing().position_initiale_X = getPos_X();
                         getTab_poing().poing_initialise = true;
                     }
-                    setX1((getPos_Z() * 6) + getLargeur_ecran() / 2);//+ (pos_X) / 5;
+
+                    //deplacement du bonhomme
+                    if(maGestuelle.isNouveauDeplacementX()) {//mode sweep
+                        position_bonhome = position_bonhome-(int)maGestuelle.getDeplacement_x();//on utilise le glissé doigt
+                        System.out.println("position bonhome = " + position_bonhome);
+
+                        if(position_bonhome <200)position_bonhome = 100; //pour ne pas que le bonhomme se barre de l"ecran
+                        if(position_bonhome > (largeur_ecran-100))position_bonhome = largeur_ecran-100;
+                        setX1((int)position_bonhome);
+
+                    }
+                      //accelerometre  setX1((getPos_Z() * 6) + getLargeur_ecran() / 2);//+ (pos_X) / 5;
 
                     getMcamion().position_x_camion = getX1();
                     getLechasseur().setPos_chasseur(getMcamion().position_x_camion - 200);
@@ -1234,11 +1268,7 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
                     String score  = String.format("%06d",getScoreGeneral());
                      if (nombre_de_vie > 1) {
                        // canvas.drawText("reste " + nombre_de_vie + " vies", getLargeur_ecran() * 4 / 7, 40, getmBitmapPaint());
-                        canvas.drawText("Level " + niveau_affiche, 0, 40, getmBitmapPaint());
-
-                    } else {
-                      //  canvas.drawText("dernière vie ", getLargeur_ecran() * 4 / 7, 40, getmBitmapPaint());
-                      //  canvas.drawText("Level " + niveau_affiche, getLargeur_ecran() * 4 / 7, getHauteur_ecran() / 8, getmBitmapPaint());
+                        canvas.drawText("Niveau " + niveau_affiche, 0, 40, getmBitmapPaint());
 
                     }
                     getmBitmapPaint().setTextSize(100);
@@ -1249,10 +1279,7 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
                     getmBitmapPaint().setTextSize(40);
 
                     canvas.drawText(getChaine(), 50, getPosition_y_score(), getmBitmapPaint());
-                //    getmBitmapPaint().setColor(Color.RED);
-               //     canvas.drawText("" + getMcamion().getNombre_de_balle_dans_la_remorque() + " / " + getNbre_bal(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 8, getmBitmapPaint());
-                    //canvas.drawText("" + getScoreGeneral(), getLargeur_ecran() * 3 / 4, getHauteur_ecran() / 15, getmBitmapPaint());
-                    break;
+                   break;
 
                 }
         }
@@ -1293,15 +1320,109 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
 
     }
 
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
+    public boolean onInterceptTouchEvent(MotionEvent event) {
 
-        return false;
+        int index = event.getActionIndex();
+        int action = event.getActionMasked();
+        int pointerId = event.getPointerId(index);
+
+        switch(action) {
+            case MotionEvent.ACTION_DOWN:
+
+                break;
+            case MotionEvent.ACTION_MOVE:
+                System.out.println("ACTION_MOVE"  + event.getX());
+
+                break;
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+                // Return a VelocityTracker object back to be re-used by others.
+
+                break;
+        }
+        return true;
     }
 
+    private float x_debut=0;
+    private float x_fin=0;
+    private float y_debut=0;
+    private float y_fin = 0;
+    private float deplacement_x = 0;
+    private float deplacement_y = 0;
     @Override
-    public boolean onTouch(View arg0, MotionEvent arg1) {
+    public boolean onTouchEvent(MotionEvent event) {
+        int action = event.getActionMasked();
+        switch(action) {
+            case MotionEvent.ACTION_DOWN:
+               // System.out.println("ACTION_DOWN X= "  + event.getX() + " X= " + event.getY());
+                x_debut = event.getX();
+                y_debut=event.getY();
 
-        setAppuis_ecran((byte) 1);
+                break;
+            case MotionEvent.ACTION_MOVE:
+               // System.out.println("ACTION_MOVE X= "  + event.getX() + " X= " + event.getY());
+
+                break;
+            case MotionEvent.ACTION_UP:
+                 x_fin = event.getX();
+                y_fin=event.getY();
+                deplacement_x = x_debut - x_fin;
+                deplacement_y = y_debut - y_fin;
+
+                System.out.println("deplacement= "  +deplacement_x+ " /  " + deplacement_y);
+                if((deplacement_x <10)&&(deplacement_y <10) ){
+                    setAppuis_ecran((byte) 1);// on a juste tapoté l'écran
+                }
+                maGestuelle.setDeplacement_x(deplacement_x);
+                maGestuelle.setDeplacement_y(deplacement_y);
+
+                if(deplacement_y < -200){
+                        // doigt glisse vers le bas
+
+                    maGestuelle.setGlisse_bas(0- deplacement_y);
+                    System.out.println("glisse bas" + deplacement_y);
+
+                }
+                if(deplacement_y >200){
+                    // doigt glisse vers le haut
+                    maGestuelle.setGlisse_haut(deplacement_y);
+                    System.out.println("glisse haut" + deplacement_y);
+
+                }
+                if(deplacement_x >200){
+                    // doigt glisse vers le haut
+                    maGestuelle.setGlisse_gauche(deplacement_x);
+                    System.out.println("glisse gauche" + deplacement_x);
+
+                }
+                if(deplacement_x < -200){
+                    // doigt glisse vers le haut
+                    maGestuelle.setGlisse_droite(0- deplacement_x);
+                    System.out.println("glisse droite" + deplacement_x);
+
+                }
+
+                break;
+            case MotionEvent.ACTION_CANCEL:
+                // Return a VelocityTracker object back to be re-used by others.
+
+                break;
+        }
+       // System.out.println("arg"  + event.toString());
+        return false;
+    }
+        @Override
+    public boolean onTouch(View arg0, MotionEvent arg1) {
+       // System.out.println("motion " + arg1.toString());
+      //  System.out.println("arg"  + arg0.toString());
+      //  System.out.println("moving distance"  + arg0.getX());
+        if(arg1.getAction() == MotionEvent.ACTION_DOWN) {
+            System.out.println( "down");
+        }
+        if(arg1.getAction() == MotionEvent.ACTION_MOVE) {
+            System.out.println( "moved");
+        }
+       // setAppuis_ecran((byte) 1);
         return false;
     }
 
