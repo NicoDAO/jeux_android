@@ -83,11 +83,11 @@ public class chasseur extends Jeux_generique {
 
 
     private void avance_chasseur() {
-        if (getPos_chasseur() > x_chasseur) {
-            x_chasseur += 10;
+        if (getPos_chasseur() > getX_chasseur()) {
+            setX_chasseur(getX_chasseur() + 10);
 
         } else
-            x_chasseur -= 10;
+            setX_chasseur(getX_chasseur() - 10);
 
         avance_torse();
 
@@ -104,8 +104,8 @@ public class chasseur extends Jeux_generique {
                 break;
             case 1:
                 affiche_torse = true;
-                x_torse_bas = x_chasseur - 20;
-                setX_torse_haut(x_chasseur + 80); // + 30;//x_patte_1_haut;
+                x_torse_bas = getX_chasseur() - 20;
+                setX_torse_haut(getX_chasseur() + 80); // + 30;//x_patte_1_haut;
                 setY_torse_haut(y_bonhomme + 40);
                 y_torse_bas = getY_torse_haut() - 100;
                 etat_torse = 0;
@@ -256,5 +256,13 @@ public class chasseur extends Jeux_generique {
 
     public void setNombre_de_vie(int nombre_de_vie) {
         this.nombre_de_vie = nombre_de_vie;
+    }
+
+    public int getX_chasseur() {
+        return x_chasseur;
+    }
+
+    public void setX_chasseur(int x_chasseur) {
+        this.x_chasseur = x_chasseur;
     }
 }

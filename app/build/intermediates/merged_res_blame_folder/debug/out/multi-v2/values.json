@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/nicolas/StudioProjects/jeux_android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/home/nicolas/StudioProjects/jeux_android/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "4,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "122,56",
+                        "endColumns": "51,65",
+                        "endOffsets": "169,117"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,107",
+                        "endColumns": "51,65",
+                        "endOffsets": "102,168"
+                    }
+                }
+            ]
+        }
+    ]
+}

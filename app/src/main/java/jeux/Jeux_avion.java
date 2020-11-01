@@ -1035,12 +1035,14 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
                         if(position_bonhome <200)position_bonhome = 100; //pour ne pas que le bonhomme se barre de l"ecran
                         if(position_bonhome > (largeur_ecran-100))position_bonhome = largeur_ecran-100;
                         setX1((int)position_bonhome);
+                        getLechasseur().setPos_chasseur((int)maGestuelle.getX_fin());
 
                     }
-                      //accelerometre  setX1((getPos_Z() * 6) + getLargeur_ecran() / 2);//+ (pos_X) / 5;
+                    getMcamion().position_x_camion = getLechasseur().getX_chasseur()-200;//position_bonhome;// getX1();
 
-                    getMcamion().position_x_camion = getX1();
-                    getLechasseur().setPos_chasseur(getMcamion().position_x_camion - 200);
+                    //accelerometre  setX1((getPos_Z() * 6) + getLargeur_ecran() / 2);//+ (pos_X) / 5;
+
+                  //   getLechasseur().setPos_chasseur(getMcamion().position_x_camion - 200);
                     getLechasseur().setNombre_de_vie(nombre_de_vie);
                     getMcamion().calcul_coordonees_remorques();
                     dx = 20 + Math.abs((getPos_X()) / 5);
@@ -1380,12 +1382,14 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
                         // doigt glisse vers le bas
 
                     maGestuelle.setGlisse_bas(0- deplacement_y);
+                    maGestuelle.setX_fin(x_fin);
                     System.out.println("glisse bas" + deplacement_y);
 
                 }
                 if(deplacement_y >200){
                     // doigt glisse vers le haut
                     maGestuelle.setGlisse_haut(deplacement_y);
+
                     System.out.println("glisse haut" + deplacement_y);
 
                 }
@@ -1393,12 +1397,16 @@ public class Jeux_avion extends Activity  implements OnTouchListener {
                     // doigt glisse vers le haut
                     maGestuelle.setGlisse_gauche(deplacement_x);
                     System.out.println("glisse gauche" + deplacement_x);
+                    maGestuelle.setX_fin(x_fin);
+
 
                 }
                 if(deplacement_x < -200){
                     // doigt glisse vers le haut
                     maGestuelle.setGlisse_droite(0- deplacement_x);
                     System.out.println("glisse droite" + deplacement_x);
+                    maGestuelle.setX_fin(x_fin);
+
 
                 }
 

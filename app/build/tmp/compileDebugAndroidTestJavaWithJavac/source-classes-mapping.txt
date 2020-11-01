@@ -1,0 +1,2 @@
+nicolas/console/pr/test/BuildConfig.java
+ nicolas.console.pr.test.BuildConfig

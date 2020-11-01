@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "applicationId": "nicolas.console.pr",
+  "variantType": "BASE_APK",
+  "elements": [
+    {
+      "outputType": {
+        "type": "BUNDLE_MANIFEST"
+      },
+      "apkData": {
+        "type": "MAIN",
+        "splits": [],
+        "versionCode": 8,
+        "versionName": "1.3.50",
+        "outputFile": "app-release.apk",
+        "fullName": "release",
+        "baseName": "release",
+        "dirName": ""
+      },
+      "path": "AndroidManifest.xml",
+      "properties": {
+        "packageId": "nicolas.console.pr",
+        "split": "",
+        "minSdkVersion": "20"
+      }
+    }
+  ]
+}

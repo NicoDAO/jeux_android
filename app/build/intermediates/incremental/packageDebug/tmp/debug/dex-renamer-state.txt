@@ -1,4 +1,4 @@
-#Sat Oct 31 18:08:21 CET 2020
+#Sun Nov 01 22:12:32 CET 2020
 base.0=/home/nicolas/StudioProjects/jeux_android/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
